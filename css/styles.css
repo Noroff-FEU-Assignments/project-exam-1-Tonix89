@@ -24,7 +24,7 @@ body{
     display: flex;
     flex-direction: column;
     background-color: var(--light-orange);
-    padding: 0 20% 0 20%;
+    padding: 0 20%;
 }
 
 /**----------- Header -----------------**/
@@ -52,8 +52,13 @@ header nav ul{
 header li{
     list-style: none;
     padding-right: 20px;
+}
+
+header li a{
+    text-decoration: none;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
+    color: black ;
 }
 
 .active{
@@ -91,6 +96,15 @@ header li{
     padding-right: 35px;
 }
 
+#hmbgr{
+    display: none;
+}
+
+.ham_menu img{
+    display: none;
+    width: 35px;
+}
+
 /** -------------------- Main -------------------**/
 
 .mn_div{
@@ -104,7 +118,7 @@ header li{
     font-weight: bold;
 }
 
-.ndx_mn_cntnr{
+.mn_cntnr{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -187,6 +201,7 @@ header li{
     display: flex;
     flex-direction: row;
     align-self: flex-start;
+    align-items: flex-end;
     gap: 5px;
 }
 
@@ -270,4 +285,56 @@ footer{
 
 h6{
     font-size: 12px;
+}
+
+
+/*------------------ Media Queries ---------------*/
+
+@media screen and (max-width: 1000px) {
+    body{
+        padding: 0 15%;
+    }
+    .site_logo img {
+        max-width: 25%;
+        max-height: 26%;
+    }
+}
+
+
+@media screen and (max-width: 850px) {
+    nav{
+        display: none;
+    }
+    .ham_menu img{
+        display: block;
+    }
+    .hdr_cntr::after{
+        content: "";
+        width: 10px;
+    }
+    .hdr_cntr{
+        flex-direction: row-reverse;
+    }
+    body{
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .srch_br input {
+        width: 200px;
+    }
+    .srch_br {
+        width: 200px;
+    }
+    .hdr_cntr::after{
+        width: 35px;
+    }
+    .mn_div h1{
+        text-align: center;
+        font-size: 25px;
+    }
+    .ham_menu img{
+        width: 25px;
+    }
 }

@@ -1,7 +1,7 @@
 import { message } from "./message/message.js";
 
 const latestPost = document.querySelector(".post_cont");
-const url = "http://localhost/daily-devotion/wp-json/wp/v2/posts";
+const url = "http://tonix.site/daily-devotion/wp-json/wp/v2/posts";
 
 console.log(url);
 
@@ -17,7 +17,7 @@ async function apiCall() {
       const content = post.content.rendered;
       console.log(content);
       const pic = post._links.author[0].href;
-      if (i <= 1) {
+      if (i <= 0) {
         console.log(pic);
         latestPost.innerHTML = `<div class="hide">${content}</div>`;
         gravatar(pic, post, result);
