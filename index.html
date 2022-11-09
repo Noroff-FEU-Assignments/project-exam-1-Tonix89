@@ -17,11 +17,9 @@
         </div>
         <div class="hdr_cntr">
             <div>
-                <div>
-                    <input type="checkbox" id="hmbgr">
-                    <label for="hmbgr" class="ham_menu"><img src="icons/Hamburger Menu.svg" alt="This is a hamburger menu"></label>
-                </div>
-                <nav>
+                <label for="hmbgr" class="ham_menu"><img src="icons/Hamburger Menu.svg" alt="This is a hamburger menu"></label>
+                <input type="checkbox" id="hmbgr">
+                <nav class="hdr_nav">
                     <ul>
                         <li class="active"><a href="index.html">Home</a></li>
                         <li><a href="blog.html">Blog</a></li>
@@ -33,19 +31,18 @@
             <div class="srch_br_cntr">
                 <form class="srch_br" >
                     <input type="text" placeholder="Search here..." name="search">
-                    <button type="submit"><label><img src="icons/Search Icon.svg" alt="search icon"></label></button>
+                    <label for="srch_bttn" class="srch_bttn_lbl"><img src="icons/Search Icon.svg" alt="search icon"></label>
+                    <button type="submit" id="srch_bttn"></button>
                 </form>
             </div>
         </div>
     </header>
 
     <main>
-        <div class="mn_div">
+        <div class="ndx_mn_div mn_div">
             <h1>Latest Post</h1>
-            <div class="mn_cntnr">
-                <form>
-                    <button type="button" class="sld_lf_cn" ><label ><img src="icons/Slide Left.svg" alt="slide left icon"></label></button>
-                </form>
+            <div class="ndx_mn_cntnr">
+                <button class="sld_lf_cn" value="-2" ><label><img src="icons/Slide Left.svg" alt="slide left icon"></label></button>
                 <div class="post_cont">
                     <div class="ldr">
                         <span class="crl"></span>
@@ -54,9 +51,7 @@
                         <span class="crl"></span>
                     </div>
                 </div>
-                <form>
-                    <button type="button" class="sld_rght_cn" ><label ><img src="icons/Slide right.svg" alt="slide left icon"></label></button>
-                </form>
+                <button class="sld_rght_cn" value="2"><img src="icons/Slide right.svg" alt="slide left icon"></a>
             </div>
         </div>
     </main>

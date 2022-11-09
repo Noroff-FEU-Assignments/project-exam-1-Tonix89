@@ -17,7 +17,9 @@
         </div>
         <div class="hdr_cntr">
             <div>
-                <nav>
+                <label for="hmbgr" class="ham_menu"><img src="icons/Hamburger Menu.svg" alt="This is a hamburger menu"></label>
+                <input type="checkbox" id="hmbgr">
+                <nav class="hdr_nav">
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li class="active"><a href="blog.html">Blog</a></li>
@@ -29,15 +31,16 @@
             <div class="srch_br_cntr">
                 <form class="srch_br" >
                     <input type="text" placeholder="Search here..." name="search">
-                    <button type="submit"><label><img src="icons/Search Icon.svg" alt="search icon"></label></button>
+                    <label for="srch_bttn" class="srch_bttn_lbl"><img src="icons/Search Icon.svg" alt="search icon"></label>
+                    <button type="submit" id="srch_bttn"></button>
                 </form>
             </div>
         </div>
     </header>
 
     <main>
-        <div class="mn_div">
-            <div class="mn_cntnr">
+        <div class="blg_main mn_div">
+            <div class="blg_mn_cntnr">
                 <!-- <form>
                     <button type="button" class="sld_lf_cn" ><label ><img src="icons/Slide Left.svg" alt="slide left icon"></label></button>
                 </form> -->
@@ -49,9 +52,7 @@
                         <span class="crl"></span>
                     </div>
                 </div>
-                <!-- <form>
-                    <button type="button" class="sld_rght_cn" ><label ><img src="icons/Slide right.svg" alt="slide left icon"></label></button>
-                </form> -->
+                <button type="button" class="show_more" value="2"><label ><img src="icons/Slide right.svg" alt="slide left icon"></label></button>
             </div>
         </div>
     </main>
@@ -69,6 +70,6 @@
             <p>Copyright &#169; Tonix2022. All rights reserved.</p>
         </div>
     </footer>
-    <script src="js/script.js" type="module"></script>
+    <script src="js/blog.js" type="module"></script>
 </body>
 </html>

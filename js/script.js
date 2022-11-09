@@ -1,8 +1,12 @@
 import { message } from "./message/message.js";
+import { changeScreen } from "./home/changescreen.js";
+import { screenSize } from "./home/screen-size.js";
+
+const screenWidth = window.innerWidth;
+const mql = window.matchMedia("(max-width: 600px)");
 
 const latestPost = document.querySelector(".post_cont");
 const url = "http://tonix.site/daily-devotion/wp-json/wp/v2/posts";
-
 console.log(url);
 
 async function apiCall() {
@@ -17,10 +21,10 @@ async function apiCall() {
       const content = post.content.rendered;
       console.log(content);
       const pic = post._links.author[0].href;
-      if (i <= 0) {
+      if (i <= 6) {
         console.log(pic);
         latestPost.innerHTML = `<div class="hide">${content}</div>`;
-        gravatar(pic, post, result);
+        gravatarApi(pic, post);
       }
     }
   } catch (error) {
@@ -28,9 +32,12 @@ async function apiCall() {
     latestPost.innerHTML = message("error", error);
   }
 }
+
 apiCall();
 
-async function gravatar(pic, post, result) {
+mql.addEventListener("change", changeScreen, false);
+
+async function gravatarApi(pic, post) {
   try {
     const verse = document.querySelector(".wp-block-quote cite").innerHTML;
     console.log(verse);
@@ -51,21 +58,22 @@ async function gravatar(pic, post, result) {
     newDate = new Date(newDate).toUTCString();
     newDate = newDate.split(" ").slice(0, 4).join(".");
 
-    latestPost.innerHTML += `<div class="ndx_mn_pst_cntnr">
-                      <div class="pst_hd">
-                        <a href="#" class="usr_prfl_pc"><img src="${userProfile}"></a>
-                        <h4>${userName}</h4>
-                        <h1>${post.title.rendered}</h1>
-                      </div>
-                      <div class="bible">
-                        <p class="verse">${verse}</p>
-                        <h2>- ${verseHead}</h2>
-                      </div>
-                      <div class="pst_cta">
-                        <div class="rd_nw_cta">Read Now</div>
-                        <div class="date"><p class="publish_date">Published Date :</p> <p class="date_date"> ${newDate}</p></div>
-                      </div>
-          </div>`;
+    latestPost.innerHTML += `<div class="ndx_mn_pst_cntnr fade">
+                          <div class="pst_hd">
+                            <a href="#" class="usr_prfl_pc"><img src="${userProfile}"></a>
+                            <h4>${userName}</h4>
+                            <h1>${post.title.rendered}</h1>
+                          </div>
+                          <div class="bible">
+                            <p class="verse">${verse}</p>
+                            <h2>- ${verseHead}</h2>
+                          </div>
+                          <div class="pst_cta">
+                            <div class="rd_nw_cta">Read Now</div>
+                            <div class="date"><p class="publish_date">Published Date :</p> <p class="date_date"> ${newDate}</p></div>
+                          </div>
+              </div>`;
+    screenSize(screenWidth);
   } catch (error) {
     console.log(error);
     latestPost.innerHTML = message("error", error);
