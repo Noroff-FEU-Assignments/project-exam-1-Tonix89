@@ -191,7 +191,7 @@ to {opacity: 1}
     width: 20px;
 }
 
-.hide{
+.hide , .blg_hide, .hideBtn{
     display: none;
 }
 .pst_hd,.bible, .pst_cta{
@@ -305,7 +305,7 @@ hr{
     margin-bottom: 0;
 }
 
-.show_more{
+.show_more, .hide_all{
     transform: rotate(90deg);
     margin: 5px;
     border: none;
