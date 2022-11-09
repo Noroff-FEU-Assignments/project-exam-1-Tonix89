@@ -141,7 +141,7 @@ header li a{
     background-color: var(--dark-blue);
     box-shadow: 4px 4px 20px var(--dark-blue);
     border-radius: 20px;
-    min-height: 60vh;
+    min-height: 50vh;
     align-items: center;
 }
 
@@ -309,7 +309,16 @@ hr{
     transform: rotate(90deg);
     margin: 5px;
     border: none;
+    margin: 0;
+    padding: 0;
     background-color: transparent;
+}
+.show_more img, .hide_all img{
+    width: 20px;
+}
+
+.show_more:hover,  .hide_all:hover{
+    background-color:  #d2fdff26;
 }
 
 /*----------------- Loader --------------*/
