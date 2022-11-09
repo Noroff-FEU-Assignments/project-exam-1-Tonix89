@@ -6,7 +6,7 @@ const screenWidth = window.innerWidth;
 const mql = window.matchMedia("(max-width: 600px)");
 
 const latestPost = document.querySelector(".post_cont");
-const url = "http://tonix.site/daily-devotion/wp-json/wp/v2/posts";
+const url = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts";
 console.log(url);
 
 async function apiCall() {

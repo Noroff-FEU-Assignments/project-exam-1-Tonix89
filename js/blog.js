@@ -4,7 +4,7 @@ const latestPost = document.querySelector(".blg_post_cont");
 const showMore = document.querySelector(".show_more");
 console.log(showMore);
 
-const url = "http://tonix.site/daily-devotion/wp-json/wp/v2/posts";
+const url = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts";
 console.log(url);
 
 async function apiCall() {
