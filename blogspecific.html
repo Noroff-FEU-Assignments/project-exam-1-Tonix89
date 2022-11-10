@@ -39,14 +39,41 @@
     </header>
 
     <main>
-        <div class="ndx_mn_div mn_div">
-            <div class="ndx_mn_cntnr">
-                <div class="post_cont">
+        <div class="spcfc_mn_div">
+            <div class="spcfc_mn_cntnr">
+                <div class="spcfc_post_cont">
                     <div class="ldr">
                         <span class="crl"></span>
                         <span class="crl"></span>
                         <span class="crl"></span>
                         <span class="crl"></span>
+                    </div>
+                </div>
+                <div class="cmmnts_sctn">
+                    <div>
+                        <h2>Comments :</h2>
+                    </div>
+                    <div class="cmmnts_cont">
+                    </div>
+                    <div class="add_cmmnt_sctn">
+                        <h2>Add Comments :</h2>
+                        <form id="add_comment">
+                            <div class="required">
+                                <label>Fullname (Required)<input name="fullname" id="fullname"/></label>
+                                <div class="infoTxt">Ex. John Doe</div>
+                                <div class="formError" id="fullnameError">Please enter your fullname</div>
+                            </div>
+                            <div class="required">
+                                <label>Email (Required)<input name="email" id="email"/></label>
+                                <div class="infoTxt">Ex. Johndoe@yahoo.com</div>
+                                <div class="formError" id="emailError">Please enter a valid email address</div>
+                            </div>
+                            <div class="required">
+                                <textarea id="comments"  placeholder="Write your comments here..."></textarea>
+                                <div class="formError" id="commentError">Please write a message, maximum of 200 character</div>
+                            </div>
+                            <button>Submit</button>
+                        </form>
                     </div>
                 </div>
             </div>

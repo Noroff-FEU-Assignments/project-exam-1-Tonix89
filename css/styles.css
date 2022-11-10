@@ -26,6 +26,11 @@ body{
     background-color: var(--light-orange);
     padding: 0 20%;
 }
+h1{
+    font-size: 26px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+}
 
 /**----------- Header -----------------**/
 
@@ -125,18 +130,14 @@ header li a{
     flex-direction: column;
     padding: 0 8%;
 }
-.ndx_mn_div h1{
-    font-size: 26px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: bold;
-}
 
 .ndx_mn_cntnr{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
-.ndx_mn_cntnr, .blg_mn_cntnr{
+.ndx_mn_cntnr, .blg_mn_cntnr, .spcfc_mn_div{
+    display: flex;
     position: relative;
     background-color: var(--dark-blue);
     box-shadow: 4px 4px 20px var(--dark-blue);
@@ -199,9 +200,9 @@ to {opacity: 1}
     flex-direction: column;
     align-items: center;
 }
-.bible{
+/* .bible{
     flex-grow: 1;
-}
+} */
 
 .ndx_mn_pst_cntnr .pst_hd h4{
     font: 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -236,7 +237,7 @@ to {opacity: 1}
     font-weight: bold;
 }
 
-.verse{
+.ndx_mn_pst_cntnr .verse{
     font: italic 14px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-indent: 10%;
     margin: 0;
@@ -257,7 +258,7 @@ to {opacity: 1}
 
 /*---------------- Blog Post Main Container --------------*/
 
-.blg_mn_pst_cntnr, .blg_spcfc_pst{
+.blg_mn_pst_cntnr{
     display: flex;
     flex-direction: row;
     margin: 20px 20px 0 20px;
@@ -287,7 +288,7 @@ to {opacity: 1}
 }
 
 hr{
-    border :solid var(--dark-blue);
+    border :solid var(--light-pink);
     margin: 0;
 }
 
@@ -329,14 +330,141 @@ hr{
 }
 
 /*----------------- Specific Page ------------*/
-.blg_spcfc_pst{
+.spcfc_mn_cntnr{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 10px;
+    background-color: var(--light-blue);
+    box-shadow: 4px 4px 20px var(--light-blue);
+}
+.spcfc_mn_div{
+    flex-direction: column;
+}
+
+.feat_img{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .feat_img img{
-    max-width: 100%;
-    max-height: 50%;
+    width: 70%;
+    height: 254px;
+    margin-bottom: 10px;
+}
+.auth_date{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.auth_date img{
+    margin-right: 10px;
+}
+
+.auth_date .date p, .auth_date h4{
+    margin: 0;
+}
+.parag h1, .parag h2, .parag h3, .parag strong{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.parag p{
+    font-size: 16px;
+    font-weight: bold;
+    text-indent: 50px;
+}
+.blg_spcfc_pst .verse{
+    font: 500 italic 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-indent: 10%;
+    margin: 0;
+}
+.blg_spcfc_pst .bible h2{
+    margin-top: 0;
+    align-self: flex-end;
+    font: bold italic 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.hide_section{
+    display: none;
+}
+.pst_cmmnt{
+    display: flex;
+    flex-direction: column;
+    background-color: var(----skyblue);
+    padding: 10px;
+    margin: 10px;
+}
+.pst_cmmnt p{
+    font: italic 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-indent: 10%;
+    margin: 0;
+}
+.pst_cmmnt p::before{
+    content: "''";
+}
+.pst_cmmnt p::after{
+    content: "''";
+}
+.pst_cmmnt h4{
+    align-self: flex-end;
+    margin: 0;
+    font: bold italic 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.cmmnts_sctn{
+    margin-top: 40px;
+    font: italic 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.add_cmmnt_sctn{
+    margin-top: 50px;
+}
+
+/*----------------- Add Comment Section ---------*/
+
+#add_comment{
+    display: flex;
+    flex-direction: column;
+}
+.formError{
+    display: none;
+    color: red;
+}
+.required label{
+    display: flex;
+    flex-direction: column;
+    font: bold 14px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+    gap: 2px;
+}
+.required input{
+    font: bold 14px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 345px;
+    border: 1px solid var(--light-pink);
+}
+.required{
+    margin-bottom: 15px;
+}
+.infoTxt{
+    color: var(--light-pink);
+    font: italic 10px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+}
+#add_comment button{
+    font: bold 16px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif; 
+    width: 100px;
+    align-self: center;
+    height: 35px;
+    border-radius: 20px;
+    border: 1px solid var(--light-pink);
+    box-shadow: 0px 0px 12px var(----skyblue);
+    background-color: var(----skyblue);
+}
+#comments{
+    border: 2px solid var(--light-pink);
+    width: 100%;
+    height: 90px;
+}
+
+#add_comment textarea{
+    font: italic 14px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 5px;
 }
 
 /*----------------- Loader --------------*/
@@ -346,8 +474,7 @@ hr{
     width: 105px;
     display: flex;
     align-self: center;
-    position: relative
-    ;
+    position: relative;
 }
 .crl{
     width: 15px;
@@ -440,7 +567,7 @@ h6{
     body{
         padding: 0;
     }
-    .ndx_mn_div h1{
+    h1{
         text-align: center;
         font-size: 20px;
     }
@@ -454,6 +581,9 @@ h6{
 
     .blg_cta{
         margin-right: 12%;
+    }
+    .spcfc_mn_div{
+        margin: 5%;
     }
 }
 
@@ -487,5 +617,11 @@ h6{
     }
     .blg_cta{
         margin-right: 26%;
+    }
+    .spcfc_mn_div{
+        margin: 8%;
+    }
+    .feat_img img {
+        height: 87px;
     }
 }
