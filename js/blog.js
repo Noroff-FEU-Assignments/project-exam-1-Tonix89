@@ -33,6 +33,7 @@ apiCall();
 
 async function gravatarApi(pic, post) {
   try {
+    console.log(post.id);
     const parag = document.querySelector(
       ".wp-block-group__inner-container"
     ).innerHTML;
@@ -66,7 +67,7 @@ async function gravatarApi(pic, post) {
                 </div>
             </div>
             <div class="blg_pst_cta pst_cta">
-                <div class="rd_nw_cta">Read Now</div>
+                <a href="blogspecific.html?id=${post.id}" class="rd_nw_cta blg_cta">Read Now</a>
             </div>
         </div>
     </div>`;

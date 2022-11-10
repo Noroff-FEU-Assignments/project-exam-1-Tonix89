@@ -69,7 +69,7 @@ async function gravatarApi(pic, post) {
                             <h2>- ${verseHead}</h2>
                           </div>
                           <div class="pst_cta">
-                            <div class="rd_nw_cta">Read Now</div>
+                            <a href="blogspecific.html?id=${post.id}" class="rd_nw_cta">Read Now</a>
                             <div class="date"><p class="publish_date">Published Date :</p> <p class="date_date"> ${newDate}</p></div>
                           </div>
               </div>`;
