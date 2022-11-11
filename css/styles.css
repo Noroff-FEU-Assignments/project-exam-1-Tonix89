@@ -136,7 +136,7 @@ header li a{
     flex-direction: row;
     justify-content: space-evenly;
 }
-.ndx_mn_cntnr, .blg_mn_cntnr, .spcfc_mn_div, .cntct_mn_div{
+.ndx_mn_cntnr, .blg_mn_cntnr, .spcfc_mn_div, .cntct_mn_div, .abt_main_cntnr{
     display: flex;
     position: relative;
     background-color: var(--dark-blue);
@@ -427,6 +427,8 @@ hr{
 .formError{
     display: none;
     color: red;
+    font: bold 10px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 .required label{
     display: flex;
@@ -483,11 +485,12 @@ hr{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
     gap: 20px;
 }
 #cntct_form textarea{
     width: 300px;
+    height: 200px;
 }
 .mssg{
     display: flex;
@@ -500,15 +503,23 @@ hr{
 #cntct_form .required label{
     color: var(--light-blue);
 }
+.cntct_mn_div h3{
+    font: bold 28px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif ;
+    color: var(--light-pink);
+}
 /*----------------- Loader --------------*/
 
 .ldr{ 
     height: 15px;
     width: 105px;
     display: flex;
-    align-self: center;
+    align-items: center;
     position: relative;
 }
+.blg_post_cont .ldr{
+    top: 120px;
+}
+
 .crl{
     width: 15px;
     height: 15px;
@@ -543,6 +554,44 @@ hr{
     to {transform: translateX(45px)}
 }
 
+/*--------------------- About Page --------------*/
+.abt_main_cntnr{
+margin: 40px;
+}
+.abt_mn{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    color: var(--light-blue) ;
+}
+
+.abt_creator{
+    text-align: center;
+}
+
+.abt_creator h4{
+    font: bold 18px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 5px;
+}
+
+.abt_creator h2{
+    font: bold italic 22px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--light-pink);
+}
+
+.abt_mn img{
+    max-width: 150px;
+    border-radius: 50%;
+}
+
+.prps h2{
+    margin: 2px;
+    font: bold italic 22px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+}
+.abt_mn p{
+    font: normal 16px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+    text-indent: 10%;
+}
 
 /** ------------------- Footer ------------------**/
 
@@ -660,5 +709,8 @@ h6{
     .cntct_mn_div {
         margin: 20px;
         padding: 0px;
+    }
+    .blg_post_cont .ldr{
+        top: 100px;
     }
 }

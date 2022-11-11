@@ -3,6 +3,7 @@ import { message } from "./message/message.js";
 const latestPost = document.querySelector(".blg_post_cont");
 const showMore = document.querySelector(".show_more");
 const hideAll = document.querySelector(".hide_all");
+hideAll.className = "hideBtn";
 
 const url = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts";
 console.log(url);

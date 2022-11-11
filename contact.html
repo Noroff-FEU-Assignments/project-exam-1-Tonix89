@@ -39,7 +39,8 @@
     </header>
 
     <main class="cntct_main">
-        <div class="cntct_mn_div mn_div">
+        <div class="cntct_mn_div">
+            <h3 id="successMessage"></h3>
             <div class="cntct_mn_cntnr">
                 <form id="cntct_form">
                     <div class="required">
@@ -47,7 +48,7 @@
                             Fullname
                         </label>
                         <div>
-                            <div class="infoTxt">Ex. John Doe</div>
+                            <div class="infoTxt">At least 5 characters long</div>
                             <input name="fullname" id="fullname" placeholder="Ex. John Doe"/>
                             <div class="formError" id="fullnameError">Please enter your fullname</div>
                         </div>
@@ -57,7 +58,7 @@
                             Email
                         </label>
                         <div>
-                            <div class="infoTxt">Ex. John Doe</div>
+                            <div class="infoTxt">Must be a valid email</div>
                             <input name="email" id="email" placeholder="Ex. johndoe@yahoo.com"/>
                             <div class="formError" id="emailError">Please enter a valid email address</div>
                         </div>
@@ -67,7 +68,7 @@
                             Subject
                         </label>
                         <div>
-                            <div class="infoTxt">Ex. John Doe</div>
+                            <div class="infoTxt">At least 15 characters long</div>
                             <input name="subject" id="subject" placeholder="atleast 10 character"/>
                             <div class="formError" id="subjectError">Please write subject</div>
                         </div>
@@ -78,10 +79,10 @@
                                 <label>
                                     Message
                                 </label>
-                                <div class="infoTxt">Ex. John Doe</div>
+                                <div class="infoTxt">Maximum of 200 characters</div>
                             </div>
-                                <textarea id="comments"  placeholder="Write your comments here..."></textarea>
-                                <div class="formError" id="commentError">Please write a message, maximum of 200 character</div>
+                                <textarea id="message"  placeholder="Write your message here..."></textarea>
+                                <div class="formError" id="messageError">Please write a message, at least 25 characters long</div>
                         </div>
                         
                     </div>
@@ -104,6 +105,6 @@
             <p>Copyright &#169; Tonix2022. All rights reserved.</p>
         </div>
     </footer>
-    <script src="js/script.js" type="module"></script>
+    <script src="js/contact.js" type="module"></script>
 </body>
 </html>
