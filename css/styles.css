@@ -136,7 +136,7 @@ header li a{
     flex-direction: row;
     justify-content: space-evenly;
 }
-.ndx_mn_cntnr, .blg_mn_cntnr, .spcfc_mn_div{
+.ndx_mn_cntnr, .blg_mn_cntnr, .spcfc_mn_div, .cntct_mn_div{
     display: flex;
     position: relative;
     background-color: var(--dark-blue);
@@ -420,7 +420,7 @@ hr{
 
 /*----------------- Add Comment Section ---------*/
 
-#add_comment{
+#add_comment, #cntct_form{
     display: flex;
     flex-direction: column;
 }
@@ -446,7 +446,7 @@ hr{
     color: var(--light-pink);
     font: italic 10px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
 }
-#add_comment button{
+#add_comment button, #cntct_form button{
     font: bold 16px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif; 
     width: 100px;
     align-self: center;
@@ -462,11 +462,44 @@ hr{
     height: 90px;
 }
 
-#add_comment textarea{
+#add_comment textarea, #cntct_form textarea{
     font: italic 14px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
     padding: 5px;
 }
 
+/*----------------- Contact Page -----------*/
+.cntct_mn_cntnr{
+    margin: 20px;
+}
+.cntct_main{
+    justify-content: center;
+    display: flex;
+}
+.cntct_mn_div{
+    max-width: fit-content;
+    padding: 2%;
+}
+.required{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+}
+#cntct_form textarea{
+    width: 300px;
+}
+.mssg{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.mssg label{
+    margin-bottom: 5px;
+}
+#cntct_form .required label{
+    color: var(--light-blue);
+}
 /*----------------- Loader --------------*/
 
 .ldr{ 
@@ -623,5 +656,9 @@ h6{
     }
     .feat_img img {
         height: 87px;
+    }
+    .cntct_mn_div {
+        margin: 20px;
+        padding: 0px;
     }
 }

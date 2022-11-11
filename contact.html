@@ -11,8 +11,7 @@
     <meta name="description" content="Daily Devotion is a blog site. As a Christian, devotion is a lifestyle. We are devoted to read the Bible, meditate to His word day and night. Is this site, follower of Jesus Christ can post their devotion and inspire others.">
 </head>
 <body>
-    <header>
-        
+    <header> 
         <div class="site_logo">
             <img src="images/Daily Devotion Logo.png" alt="Daily Devotion Logo. We unite together, we pray together.">
         </div>
@@ -39,23 +38,55 @@
         </div>
     </header>
 
-    <main>
-        <div class="cntct_main mn_div">
-            <div class="mn_cntnr">
-                <!-- <form>
-                    <button type="button" class="sld_lf_cn" ><label ><img src="icons/Slide Left.svg" alt="slide left icon"></label></button>
-                </form> -->
-                <div class="blg_post_cont">
-                    <div class="ldr">
-                        <span class="crl"></span>
-                        <span class="crl"></span>
-                        <span class="crl"></span>
-                        <span class="crl"></span>
+    <main class="cntct_main">
+        <div class="cntct_mn_div mn_div">
+            <div class="cntct_mn_cntnr">
+                <form id="cntct_form">
+                    <div class="required">
+                        <label>
+                            Fullname
+                        </label>
+                        <div>
+                            <div class="infoTxt">Ex. John Doe</div>
+                            <input name="fullname" id="fullname" placeholder="Ex. John Doe"/>
+                            <div class="formError" id="fullnameError">Please enter your fullname</div>
+                        </div>
                     </div>
-                </div>
-                <!-- <form>
-                    <button type="button" class="sld_rght_cn" ><label ><img src="icons/Slide right.svg" alt="slide left icon"></label></button>
-                </form> -->
+                    <div class="required">
+                        <label>
+                            Email
+                        </label>
+                        <div>
+                            <div class="infoTxt">Ex. John Doe</div>
+                            <input name="email" id="email" placeholder="Ex. johndoe@yahoo.com"/>
+                            <div class="formError" id="emailError">Please enter a valid email address</div>
+                        </div>
+                    </div>
+                    <div class="required">
+                        <label>
+                            Subject
+                        </label>
+                        <div>
+                            <div class="infoTxt">Ex. John Doe</div>
+                            <input name="subject" id="subject" placeholder="atleast 10 character"/>
+                            <div class="formError" id="subjectError">Please write subject</div>
+                        </div>
+                    </div>
+                    <div class="required">
+                        <div>
+                            <div class="mssg">
+                                <label>
+                                    Message
+                                </label>
+                                <div class="infoTxt">Ex. John Doe</div>
+                            </div>
+                                <textarea id="comments"  placeholder="Write your comments here..."></textarea>
+                                <div class="formError" id="commentError">Please write a message, maximum of 200 character</div>
+                        </div>
+                        
+                    </div>
+                    <button>Submit</button>
+                </form>
             </div>
         </div>
     </main>

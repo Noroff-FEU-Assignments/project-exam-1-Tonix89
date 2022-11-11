@@ -43,6 +43,7 @@ async function gravatarApi(pic, post) {
     console.log(gravatarResult);
 
     const userName = gravatarResult.name;
+
     console.log(userName);
 
     const userProfile = gravatarResult.avatar_urls[96];

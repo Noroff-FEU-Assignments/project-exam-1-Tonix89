@@ -106,14 +106,7 @@ async function postApi() {
                             </div>
                     </div>`;
     document.querySelector(".hide_section").className = "cmmnts_sctn";
-    // const cmmnts = [];
-    // comResult.forEach((comResult) => {
-    //   let comms = comResult.content.rendered;
-    //   console.log(comms);
-
-    //   cmmnts.push(comms);
-    // });
-    // console.log(JSON.stringify(cmmnts));
+    document.title = "My Devotion" + "|" + verseHead + "|" + userName;
   } catch (error) {
     console.log(error);
     postCont.innerHTML = message("error", error);
