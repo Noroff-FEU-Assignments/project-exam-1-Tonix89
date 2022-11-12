@@ -5,8 +5,6 @@ export function getUser(userResult, modalCont, modalPost, close) {
                           <h3>About the author :</h3>
                           <p>${userResult.description}</p>
               </div>`;
-  modalCont.style.position = "fixed";
-  modalCont.style.width = "80%";
   close.onclick = function () {
     modalCont.style.display = "none";
   };

@@ -260,16 +260,24 @@ to {opacity: 1}
 
 /*------------------- Modal ------------------------------*/
 
-#modal{
+#modal, #spcfc_modal, #abt_modal{
     display: flex;
+    position: fixed;
     flex-direction: row-reverse;
     justify-content: space-evenly;
     gap: 30px;
-    position: absolute;
-    width: 110%;
+    width: 80%;
     height: fit-content;
     backdrop-filter: blur(15px);
     z-index: 5;
+}
+#spcfc_modal, #abt_modal{
+    position: absolute;
+    width: 95%;
+}
+#abt_modal img{
+    max-width: 100%;
+    border-radius: 0%;
 }
 .close{
     display: inline-flex;
@@ -384,6 +392,7 @@ hr{
 .spcfc_mn_cntnr{
     display: flex;
     flex-direction: column;
+    position: relative;
     margin: 20px;
     padding: 10px;
     background-color: var(--light-blue);
@@ -392,13 +401,17 @@ hr{
 .spcfc_mn_div{
     flex-direction: column;
 }
-
-.feat_img{
+.feat_cont button{
+    border: none;
+    background-color: transparent;
+    width: 100%;
+}
+.feat_cont{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.feat_img img{
+.feat_cont button img{
     width: 70%;
     height: 254px;
     margin-bottom: 10px;
@@ -642,6 +655,9 @@ margin: 40px;
 .abt_mn p{
     font: normal 16px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
     text-indent: 10%;
+}
+.abt_mn li{
+    font: normal 16px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /** ------------------- Footer ------------------**/

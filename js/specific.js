@@ -1,8 +1,15 @@
 import { message } from "./message/message.js";
+import { getUser } from "./home/modal.js";
 
 const postCont = document.querySelector(".spcfc_post_cont");
 const cmmntsCont = document.querySelector(".cmmnts_cont");
 document.querySelector(".cmmnts_sctn").className = "hide_section";
+
+const modalCont = document.getElementById("spcfc_modal");
+const modalPost = document.querySelector(".modal_post");
+const close = document.querySelector(".close");
+modalCont.style.display = "none";
+
 const queryString = document.location.search;
 
 const params = new URLSearchParams(queryString);
@@ -80,12 +87,11 @@ async function postApi() {
     ).innerHTML;
 
     postCont.innerHTML += `<div class="blg_spcfc_pst">
-                            <div class="feat_img">
-                                <img src="${feat}">
+                            <div class= "feat_cont">
+                            <button class="feat_img"><label><img src="${feat}"></label></button>
                             </div>
                             <div class="auth_date">
-                                <a href="#" class="usr_prfl_pc"><img src="${pic}">
-                                </a>
+                              <button class="usr_prfl_pc" value="${result.author}"><label><img src="${pic}"></label></button>
                                 <div>
                                     <h4>${userName}</h4>
                                     <div class="date">
@@ -105,6 +111,26 @@ async function postApi() {
                                 ${parag}
                             </div>
                     </div>`;
+    const featImg = document.querySelector(".feat_img");
+    featImg.onclick = function () {
+      console.log(featImg);
+      console.log(modalPost);
+      modalCont.style.display = "flex";
+      modalPost.innerHTML = `<div class="user_info"><img src="${feat}"> </div>`;
+      close.onclick = function () {
+        modalCont.style.display = "none";
+      };
+    };
+
+    const usrPc = document.querySelector(".usr_prfl_pc");
+    console.log(usrPc);
+    usrPc.onclick = function () {
+      const url3 =
+        "https://tonix.site/daily-devotion/wp-json/wp/v2/users/" + usrPc.value;
+      console.log(url3);
+      userInfo(url3);
+    };
+
     document.querySelector(".hide_section").className = "cmmnts_sctn";
     document.title = "My Devotion" + "|" + verseHead + "|" + userName;
   } catch (error) {
@@ -114,3 +140,18 @@ async function postApi() {
 }
 
 postApi();
+
+async function userInfo(url3) {
+  try {
+    const userData = await fetch(url3);
+    const userResult = await userData.json();
+    console.log(userResult);
+
+    modalCont.style.display = "flex";
+
+    getUser(userResult, modalCont, modalPost, close);
+  } catch (error) {
+    console.log(error);
+    latestPost.innerHTML = message("error", error);
+  }
+}
