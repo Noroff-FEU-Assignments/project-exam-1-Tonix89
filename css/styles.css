@@ -195,14 +195,12 @@ to {opacity: 1}
 .hide , .blg_hide, .hideBtn{
     display: none;
 }
-.pst_hd,.bible, .pst_cta{
+.pst_hd, .bible, .pst_cta{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-/* .bible{
-    flex-grow: 1;
-} */
+
 
 .ndx_mn_pst_cntnr .pst_hd h4{
     font: 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -219,6 +217,10 @@ to {opacity: 1}
 
 .usr_prfl_pc img{
     border-radius: 50%;
+}
+.usr_prfl_pc{
+    border: none;
+    background-color: transparent;
 }
 
 .date{
@@ -254,6 +256,54 @@ to {opacity: 1}
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
     font-style: italic;
+}
+
+/*------------------- Modal ------------------------------*/
+
+#modal{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    gap: 30px;
+    position: absolute;
+    width: 110%;
+    height: fit-content;
+    backdrop-filter: blur(15px);
+    z-index: 5;
+}
+.close{
+    display: inline-flex;
+    font: bolder 28px "Segoe UI";
+    margin-top: 20px;
+    background-color: var(--dark-blue);
+    align-self: flex-end;
+}
+.user_info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--light-pink);
+    opacity: 0.7 ;
+    width: fit-content;
+    padding: 30px;
+    color: var(--dark-blue);
+}
+.me_cntnt{
+    content: " ";
+    width: 28px;
+}
+.user_info img{
+   min-width: 20%;
+}
+.user_info h2,
+.user_info h3 {
+        font-weight: bold;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.user_info p{
+    font:500 16px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-indent: 10%;
+    margin-top: 0px;
 }
 
 /*---------------- Blog Post Main Container --------------*/
@@ -294,6 +344,7 @@ hr{
 
 .blg_pst_hd{
     margin-right: 8px;
+    text-align: center;
 }
 .blg_pst_hd h4{
     margin: 0;
@@ -306,7 +357,7 @@ hr{
     font-size: 26px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bold;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .show_more, .hide_all{
@@ -667,6 +718,9 @@ h6{
     .spcfc_mn_div{
         margin: 5%;
     }
+    #modal{
+        margin-top: 20%;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -712,5 +766,15 @@ h6{
     }
     .blg_post_cont .ldr{
         top: 100px;
+    }
+    .user_info{
+        padding:10px
+    }
+    .user_info h2, .user_info h3{
+        font-size: 16px;
+    }
+
+    .user_info p{
+        font-size: 12px;
     }
 }
