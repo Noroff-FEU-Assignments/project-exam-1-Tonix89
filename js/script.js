@@ -28,7 +28,7 @@ async function apiCall() {
       const content = post.content.rendered;
       console.log(content);
       const pic = post._links.author[0].href;
-      if (i <= 6) {
+      if (i <= 5) {
         // console.log(pic);
         latestPost.innerHTML = `<div class="hide">${content}</div>`;
         gravatarApi(pic, post);
