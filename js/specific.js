@@ -10,16 +10,6 @@ const modalPost = document.querySelector(".modal_post");
 const close = document.querySelector(".close");
 modalCont.style.display = "none";
 
-const submitMessage = document.querySelector(".cmmnt_sbmt_mssg");
-const commentSection = document.querySelector(".add_cmmnt_sctn");
-const commentForm = document.getElementById("add_comment");
-const fullname = document.getElementById("fullname");
-const fullnameError = document.getElementById("fullnameError");
-const email = document.getElementById("email");
-const emailError = document.getElementById("emailError");
-const usrComments = document.getElementById("comments");
-const commentError = document.getElementById("commentError");
-
 const queryString = document.location.search;
 
 const params = new URLSearchParams(queryString);
@@ -164,54 +154,4 @@ async function userInfo(url3) {
     console.log(error);
     latestPost.innerHTML = message("error", error);
   }
-}
-
-function validateComment(event) {
-  event.preventDefault();
-
-  if (validateLength(fullname.value, 5) === true) {
-    fullnameError.style.display = "none";
-  } else {
-    fullnameError.style.display = "block";
-  }
-
-  if (validateEmail(email.value) === true) {
-    emailError.style.display = "none";
-  } else {
-    emailError.style.display = "block";
-  }
-
-  if (
-    usrComments.value.trim().length <= 200 &&
-    usrComments.value.trim().length >= 25
-  ) {
-    commentError.style.display = "none";
-  } else {
-    commentError.style.display = "block";
-  }
-
-  if (
-    usrComments.value.trim().length <= 200 &&
-    usrComments.value.trim().length >= 25 &&
-    validateEmail(email.value) === true &&
-    validateLength(fullname.value, 5) === true
-  ) {
-    submitMessage.innerHTML = `<p>Your comment is waiting for review</p>`;
-    commentSection.style.display = "none";
-  }
-}
-commentForm.addEventListener("submit", validateComment);
-
-function validateLength(value, len) {
-  if (value.trim().length >= len) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function validateEmail(email) {
-  const regEx = /\S+@\S+\.\S+/;
-  const patternMatches = regEx.test(email);
-  return patternMatches;
 }

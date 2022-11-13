@@ -9,6 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto+Serif&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>Daily Devotion</title>
     <meta name="description" content="Daily Devotion is a blog site. As a Christian, devotion is a lifestyle. We are devoted to read the Bible, meditate to His word day and night. Is this site, follower of Jesus Christ can post their devotion and inspire others.">
+    <!-- Hotjar Tracking Code for Daily Devotion -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3245632,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
     <link rel="icon" href="https://daily-devotion.netlify.app/favicon.ico">
 </head>
 <body>
@@ -81,7 +92,13 @@
                                 <textarea id="comments"  placeholder="Write your comments here..."></textarea>
                                 <div class="formError" id="commentError">Please write a message, minimum of 25 and maximum of 200 character</div>
                             </div>
-                            <button>Submit</button>
+                            <div class="spcfc_ldr">
+                                <span class="crl"></span>
+                                <span class="crl"></span>
+                                <span class="crl"></span>
+                                <span class="crl"></span>
+                            </div>
+                            <button class="btn">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -103,5 +120,6 @@
         </div>
     </footer>
     <script src="js/specific.js" type="module"></script>
+    <script src="js/comment-submit.js" type="module"></script>
 </body>
 </html>

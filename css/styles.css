@@ -486,6 +486,10 @@ hr{
 .add_cmmnt_sctn{
     margin-top: 50px;
 }
+.spcfc_ldr{
+    display: none;
+    align-self: center;
+}
 
 /*----------------- Add Comment Section ---------*/
 
