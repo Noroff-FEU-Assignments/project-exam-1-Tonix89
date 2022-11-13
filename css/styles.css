@@ -478,6 +478,11 @@ hr{
     margin-top: 40px;
     font: italic 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+.cmmnt_sbmt_mssg{
+    text-align: center;
+    margin-top: 60px;
+    font: bold 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 .add_cmmnt_sctn{
     margin-top: 50px;
 }
@@ -493,6 +498,12 @@ hr{
     color: red;
     font: bold 10px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
 
+}
+#add_comment .required{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
 }
 .required label{
     display: flex;
