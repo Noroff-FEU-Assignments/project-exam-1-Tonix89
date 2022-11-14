@@ -27,14 +27,14 @@ srchForm.addEventListener("submit", searchForm);
 
 const latestPost = document.querySelector(".post_cont");
 const url1 = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts";
-//console.log(url1);
+// console.log(url1);
 
 async function apiCall() {
   try {
     const post = await fetch(url1);
     const result = await post.json();
 
-    //console.log(result);
+    console.log(result);
     latestPost.innerHTML = "";
     for (let i = 0; i < result.length; i++) {
       const post = result[i];

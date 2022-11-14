@@ -821,3 +821,67 @@ h6{
         font-size: 12px;
     }
 }
+
+@media screen and (max-width: 330px){
+    .srch_br input {
+        width: 155px;
+        right: 10px;
+    }
+    .srch_bttn_lbl{
+        right: 38px;
+        top: 2px;
+    }
+    .feat_cont button img{
+        width: 80%;
+        height: 100px;
+    }
+    .feat_cont button {
+        width: 80%;
+    }
+    .usr_prfl_pc img {
+        width: 35px;
+    }
+    .auth_date h4,  h1, .blg_title {
+        font-size: 14px;
+    }
+    .publish_date, .date_date {
+        font-size: 8px;
+    }
+    .blg_spcfc_pst .verse, .required label, .required input, #add_comment textarea  {
+        font-size: 10px;
+    }
+    .blg_spcfc_pst .bible h2, .cmmnts_sctn h2, .blg_pst_hd h4 {
+        font-size: 12px;
+    }
+    .parag h1, .parag h2, .parag h3, .parag strong,  .blg_paragraph h3,.blg_paragraph strong{
+        font-size: 13px;
+    }
+    .parag p, .pst_cmmnt p{
+        font-size: 11px;
+    }
+    .blg_title{
+        margin: 10px 5px 0 5px;
+        padding: 5px;
+    }
+    .blg_paragraph{
+        padding: 0px;
+        font-size: 10px;
+    }
+    .required {
+        margin-bottom: 5px;
+        gap:2px;
+    }
+    #cntct_form textarea {
+        width: 235px;
+        height: 145px;
+    }
+    .abt_mn{
+        padding: 10px;
+    }
+    .abt_main_cntnr {
+        margin: 15px;
+    }
+    .abt_mn img {
+        max-width: 100px;
+    }
+}
