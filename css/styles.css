@@ -847,7 +847,7 @@ h6{
     .publish_date, .date_date {
         font-size: 8px;
     }
-    .blg_spcfc_pst .verse, .required label, .required input, #add_comment textarea  {
+    .blg_spcfc_pst .verse, .required label, .required input, #add_comment textarea,.pst_cmmnt h4  {
         font-size: 10px;
     }
     .blg_spcfc_pst .bible h2, .cmmnts_sctn h2, .blg_pst_hd h4 {
@@ -883,5 +883,9 @@ h6{
     }
     .abt_mn img {
         max-width: 100px;
+    }
+    .feat_cont button img {
+        width: 90%;
+        height: 100px;
     }
 }
