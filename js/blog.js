@@ -12,27 +12,27 @@ const close = document.querySelector(".close");
 modalCont.style.display = "none";
 
 const url1 = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts";
-console.log(url1);
+//console.log(url1);
 
 async function apiCall() {
   try {
     const post = await fetch(url1);
     const result = await post.json();
-    console.log(result);
+    //console.log(result);
 
     latestPost.innerHTML = "";
     for (let i = 0; i < result.length; i++) {
       const post = result[i];
       const content = post.content.rendered;
-      console.log(content);
+      //console.log(content);
       const pic = post._links.author[0].href;
-      console.log(pic);
+      //console.log(pic);
 
       latestPost.innerHTML = `<div class="hide">${content}</div>`;
       gravatarApi(pic, post);
     }
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     latestPost.innerHTML = message("error", error);
   }
 }
@@ -41,21 +41,21 @@ apiCall();
 
 async function gravatarApi(pic, post) {
   try {
-    console.log(post.id);
+    // console.log(post.id);
     const parag = document.querySelector(
       ".wp-block-group__inner-container"
     ).innerHTML;
-    console.log(parag);
+    //console.log(parag);
     const userGravatar = await fetch(pic);
     const gravatarResult = await userGravatar.json();
-    console.log(gravatarResult);
+    //console.log(gravatarResult);
 
     const userName = gravatarResult.name;
 
-    console.log(userName);
+    //console.log(userName);
 
     const userProfile = gravatarResult.avatar_urls[96];
-    console.log(userProfile);
+    //console.log(userProfile);
 
     let newDate = post.date;
     newDate = new Date(newDate).toUTCString();
@@ -81,15 +81,15 @@ async function gravatarApi(pic, post) {
         </div>
     </div>`;
     const authName = document.querySelectorAll(".blg_title");
-    console.log(authName);
+    // console.log(authName);
     const usrPc = document.querySelectorAll(".usr_prfl_pc");
-    console.log(usrPc);
+    //console.log(usrPc);
     usrPc.forEach((userX) => {
       userX.onclick = function () {
         const userId = userX.value;
         const url2 =
           "https://tonix.site/daily-devotion/wp-json/wp/v2/users/" + userId;
-        console.log(url2);
+        //console.log(url2);
         userInfo(url2);
       };
     });
@@ -106,21 +106,21 @@ async function userInfo(url2) {
   try {
     const userData = await fetch(url2);
     const userResult = await userData.json();
-    console.log(userResult);
+    //console.log(userResult);
 
     modalCont.style.display = "flex";
 
     getUser(userResult, modalCont, modalPost, close);
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     latestPost.innerHTML = message("error", error);
   }
 }
 
 function hidePost() {
   const posted = document.querySelectorAll(".blg_mn_pst_cntnr");
-  console.log(posted);
-  console.log(hideAll);
+  //console.log(posted);
+  //console.log(hideAll);
   hideAll.className = "hideBtn";
 
   for (let i = 0; i < posted.length; i++) {
@@ -132,7 +132,7 @@ function hidePost() {
 
 function hiddenPost() {
   let y = 0;
-  console.log(showMore);
+  //console.log(showMore);
 
   showMore.onclick = function () {
     showPost((y += parseInt(showMore.value)));
@@ -145,10 +145,10 @@ function hiddenPost() {
   };
 
   const blogHide = document.querySelectorAll(".blg_hide");
-  console.log(blogHide);
+  // console.log(blogHide);
 
   function showPost(x) {
-    console.log(x);
+    //console.log(x);
     for (let i = 0; i < blogHide.length; i++) {
       if (i < x) {
         blogHide[i].className = "blg_mn_pst_cntnr";

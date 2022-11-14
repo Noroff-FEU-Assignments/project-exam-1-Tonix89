@@ -22,8 +22,6 @@ function searchForm(event) {
 srchForm.addEventListener("submit", searchForm);
 
 const url = "https://formspree.io/f/xbjbwrav";
-// const url =
-//   "https://www.tonix.site/daily-devotion/wp-json/contact-form-7/v1/contact-forms/108?key=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";
 
 function validateForm(event) {
   event.preventDefault();

@@ -25,25 +25,25 @@ const queryString = document.location.search;
 
 const params = new URLSearchParams(queryString);
 
-console.log(params);
+//console.log(params);
 
 const id = params.get("id");
 
-console.log(id);
+//console.log(id);
 
 const url1 = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts/" + id;
-console.log(url1);
+// //console.log(url1);
 
 const url2 =
   "https://tonix.site/daily-devotion/wp-json/wp/v2/comments?post=" + id;
 
-console.log(url2);
+//console.log(url2);
 
 async function commentApi() {
   try {
     const comment = await fetch(url2);
     const comResult = await comment.json();
-    console.log(comResult);
+    //console.log(comResult);
 
     if (comResult.length === 0) {
       cmmntsCont.innerHTML = `<div class="pst_cmmnt">
@@ -52,7 +52,7 @@ async function commentApi() {
     } else {
       for (let i = 0; i < comResult.length; i++) {
         const y = comResult[i].content.rendered;
-        console.log(y);
+        //console.log(y);
         cmmntsCont.innerHTML += `<div class="cmmnts_cont">
                           <div class="pst_cmmnt">
                             ${y}
@@ -73,16 +73,16 @@ async function postApi() {
   try {
     const post = await fetch(url1);
     const result = await post.json();
-    console.log(result);
+    //console.log(result);
 
     postCont.innerHTML = `<div class="hide">${result.content.rendered}</div>`;
 
     const pic = document.querySelector(".wp-block-post-author__avatar img").src;
-    console.log(pic);
+    //console.log(pic);
     const feat = document.querySelector(
       ".wp-block-post-featured-image img"
     ).src;
-    console.log(feat);
+    //console.log(feat);
     const userName = document.querySelector(
       ".wp-block-post-author__name"
     ).innerHTML;
@@ -90,9 +90,9 @@ async function postApi() {
     newDate = new Date(newDate).toUTCString();
     newDate = newDate.split(" ").slice(0, 4).join(".");
     const verse = document.querySelector(".wp-block-quote cite").innerHTML;
-    console.log(verse);
+    //console.log(verse);
     const verseHead = document.querySelector(".wp-block-quote h2").innerHTML;
-    console.log(verseHead);
+    //console.log(verseHead);
     const parag = document.querySelector(
       ".wp-block-group__inner-container"
     ).innerHTML;
@@ -124,8 +124,8 @@ async function postApi() {
                     </div>`;
     const featImg = document.querySelector(".feat_img");
     featImg.onclick = function () {
-      console.log(featImg);
-      console.log(modalPost);
+      //console.log(featImg);
+      // console.log(modalPost);
       modalCont.style.display = "flex";
       modalPost.innerHTML = `<div class="user_info"><img src="${feat}"> </div>`;
       close.onclick = function () {
@@ -134,18 +134,18 @@ async function postApi() {
     };
 
     const usrPc = document.querySelector(".usr_prfl_pc");
-    console.log(usrPc);
+    // console.log(usrPc);
     usrPc.onclick = function () {
       const url3 =
         "https://tonix.site/daily-devotion/wp-json/wp/v2/users/" + usrPc.value;
-      console.log(url3);
+      //console.log(url3);
       userInfo(url3);
     };
 
     document.querySelector(".hide_section").className = "cmmnts_sctn";
     document.title = "My Devotion" + "|" + verseHead + "|" + userName;
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     postCont.innerHTML = message("error", error);
   }
 }
@@ -156,7 +156,7 @@ async function userInfo(url3) {
   try {
     const userData = await fetch(url3);
     const userResult = await userData.json();
-    console.log(userResult);
+    //console.log(userResult);
 
     modalCont.style.display = "flex";
 

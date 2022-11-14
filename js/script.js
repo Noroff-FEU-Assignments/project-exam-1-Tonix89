@@ -24,20 +24,20 @@ srchForm.addEventListener("submit", searchForm);
 
 const latestPost = document.querySelector(".post_cont");
 const url1 = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts";
-console.log(url1);
+//console.log(url1);
 
 async function apiCall() {
   try {
     const post = await fetch(url1);
     const result = await post.json();
 
-    console.log(result);
+    //console.log(result);
     latestPost.innerHTML = "";
     for (let i = 0; i < result.length; i++) {
       const post = result[i];
-      console.log(post.author);
+      //console.log(post.author);
       const content = post.content.rendered;
-      console.log(content);
+      //console.log(content);
       const pic = post._links.author[0].href;
       if (i <= 5) {
         // console.log(pic);
@@ -46,7 +46,7 @@ async function apiCall() {
       }
     }
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     latestPost.innerHTML = message("error", error);
   }
 }
@@ -92,19 +92,19 @@ async function gravatarApi(pic, post) {
                           </div>
               </div>`;
     const usrPc = document.querySelectorAll(".usr_prfl_pc");
-    console.log(usrPc);
+    //console.log(usrPc);
     usrPc.forEach((userX) => {
       userX.onclick = function () {
         const userId = userX.value;
         const url2 =
           "https://tonix.site/daily-devotion/wp-json/wp/v2/users/" + userId;
-        console.log(url2);
+        //console.log(url2);
         userInfo(url2);
       };
     });
     screenSize(screenWidth);
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     latestPost.innerHTML = message("error", error);
   }
 }
@@ -113,13 +113,13 @@ async function userInfo(url2) {
   try {
     const userData = await fetch(url2);
     const userResult = await userData.json();
-    console.log(userResult);
+    //console.log(userResult);
 
     modalCont.style.display = "flex";
 
     getUser(userResult, modalCont, modalPost, close);
   } catch (error) {
-    console.log(error);
+    //console.log(error);
     latestPost.innerHTML = message("error", error);
   }
 }

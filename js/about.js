@@ -16,8 +16,8 @@ function searchForm(event) {
 srchForm.addEventListener("submit", searchForm);
 
 myPhoto.onclick = function () {
-  console.log(myPhoto.src);
-  console.log(modalPost);
+  // console.log(myPhoto.src);
+  // console.log(modalPost);
   modalCont.style.display = "flex";
   modalPost.innerHTML = `<div class="user_info"><img src="${myPhoto.src}"> </div>`;
   close.onclick = function () {

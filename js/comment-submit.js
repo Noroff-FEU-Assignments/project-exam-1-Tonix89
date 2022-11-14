@@ -2,11 +2,11 @@ const queryString = document.location.search;
 
 const params = new URLSearchParams(queryString);
 
-console.log(params);
+//console.log(params);
 
 const id = params.get("id");
 
-console.log(id);
+//console.log(id);
 
 const url =
   "https://www.tonix.site/daily-devotion/wp-json/wp/v2/comments?post=" + id;
@@ -57,10 +57,10 @@ function validateComment(event) {
       author_email: email.value,
       content: usrComments.value,
     };
-    console.log(url);
-    console.log(formData);
+    //console.log(url);
+    //console.log(formData);
     postData(url, formData).then((data) => {
-      console.log(data);
+      //console.log(data);
       submitButton.style.display = "none";
       loader.style.display = "flex";
       setTimeout(function () {
