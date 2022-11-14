@@ -10,17 +10,6 @@ const modalPost = document.querySelector(".modal_post");
 const close = document.querySelector(".close");
 modalCont.style.display = "none";
 
-const srchForm = document.querySelector(".srch_br");
-const searchButton = document.getElementById("srch_bttn");
-function searchForm(event) {
-  event.preventDefault();
-
-  searchButton.onclick = function () {
-    window.location.href = "blog.html";
-  };
-}
-srchForm.addEventListener("submit", searchForm);
-
 const queryString = document.location.search;
 
 const params = new URLSearchParams(queryString);
@@ -30,6 +19,20 @@ const params = new URLSearchParams(queryString);
 const id = params.get("id");
 
 //console.log(id);
+
+const srchForm = document.querySelector(".srch_br");
+const inputValue = document.getElementById("input_value");
+// console.log(inputValue.value);
+function searchForm(event) {
+  event.preventDefault();
+  // console.log(inputValue.value);
+  if (inputValue.value) {
+    window.location.href = "blog.html?search=" + inputValue.value;
+  } else {
+    window.location.href = "blogspecific.html?id=" + id;
+  }
+}
+srchForm.addEventListener("submit", searchForm);
 
 const url1 = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts/" + id;
 // //console.log(url1);

@@ -11,13 +11,16 @@ const messageError = document.getElementById("messageError");
 const successMessage = document.querySelector("#successMessage");
 
 const srchForm = document.querySelector(".srch_br");
-const searchButton = document.getElementById("srch_bttn");
+const inputValue = document.getElementById("input_value");
+// console.log(inputValue.value);
 function searchForm(event) {
   event.preventDefault();
-
-  searchButton.onclick = function () {
-    window.location.href = "blog.html";
-  };
+  // console.log(inputValue.value);
+  if (inputValue.value) {
+    window.location.href = "blog.html?search=" + inputValue.value;
+  } else {
+    window.location.href = "contact.html";
+  }
 }
 srchForm.addEventListener("submit", searchForm);
 

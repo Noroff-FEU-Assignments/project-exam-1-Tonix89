@@ -316,7 +316,7 @@ to {opacity: 1}
 
 /*---------------- Blog Post Main Container --------------*/
 
-.blg_mn_pst_cntnr{
+.blg_mn_pst_cntnr, .search_cont{
     display: flex;
     flex-direction: row;
     margin: 20px 20px 0 20px;
@@ -386,6 +386,18 @@ hr{
 
 .blg_cta{
     margin-right: 17%;
+}
+.search_cont{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.search_cont ul{
+    margin: 0px;
+}
+.search_filtered{
+    display: none;
 }
 
 /*----------------- Specific Page ------------*/

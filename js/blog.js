@@ -1,8 +1,9 @@
 import { message } from "./message/message.js";
 import { getUser } from "./home/modal.js";
 
-const latestPost = document.querySelector(".blg_post_cont");
+const blogPost = document.querySelector(".blg_post_cont");
 const showMore = document.querySelector(".show_more");
+const searchCont = document.querySelector(".search_cont");
 const hideAll = document.querySelector(".hide_all");
 hideAll.className = "hideBtn";
 
@@ -14,13 +15,23 @@ modalCont.style.display = "none";
 const url1 = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts";
 //console.log(url1);
 
+const queryString = document.location.search;
+
+const params = new URLSearchParams(queryString);
+
+//console.log(params);
+
+const search = params.get("search");
+
+// console.log(search);
+
 async function apiCall() {
   try {
     const post = await fetch(url1);
     const result = await post.json();
     //console.log(result);
 
-    latestPost.innerHTML = "";
+    blogPost.innerHTML = "";
     for (let i = 0; i < result.length; i++) {
       const post = result[i];
       const content = post.content.rendered;
@@ -28,15 +39,14 @@ async function apiCall() {
       const pic = post._links.author[0].href;
       //console.log(pic);
 
-      latestPost.innerHTML = `<div class="hide">${content}</div>`;
+      blogPost.innerHTML = `<div class="hide">${content}</div>`;
       gravatarApi(pic, post);
     }
   } catch (error) {
     //console.log(error);
-    latestPost.innerHTML = message("error", error);
+    blogPost.innerHTML = message("error", error);
   }
 }
-
 apiCall();
 
 async function gravatarApi(pic, post) {
@@ -61,7 +71,7 @@ async function gravatarApi(pic, post) {
     newDate = new Date(newDate).toUTCString();
     newDate = newDate.split(" ").slice(0, 4).join(".");
 
-    latestPost.innerHTML += `<div class="blg_mn_pst_cntnr">
+    blogPost.innerHTML += `<div class="blg_mn_pst_cntnr">
         <div class="blg_pst_hd pst_hd">
         <button class="usr_prfl_pc" value="${post.author}"><label><img src="${userProfile}"></label></button>
           <h4>${userName}</h4>
@@ -80,8 +90,6 @@ async function gravatarApi(pic, post) {
             </div>
         </div>
     </div>`;
-    const authName = document.querySelectorAll(".blg_title");
-    // console.log(authName);
     const usrPc = document.querySelectorAll(".usr_prfl_pc");
     //console.log(usrPc);
     usrPc.forEach((userX) => {
@@ -93,12 +101,11 @@ async function gravatarApi(pic, post) {
         userInfo(url2);
       };
     });
-
     hidePost();
     hiddenPost();
   } catch (error) {
     console.log(error);
-    latestPost.innerHTML = message("error", error);
+    blogPost.innerHTML = message("error", error);
   }
 }
 
@@ -113,19 +120,67 @@ async function userInfo(url2) {
     getUser(userResult, modalCont, modalPost, close);
   } catch (error) {
     //console.log(error);
-    latestPost.innerHTML = message("error", error);
+    blogPost.innerHTML = message("error", error);
   }
 }
 
 function hidePost() {
   const posted = document.querySelectorAll(".blg_mn_pst_cntnr");
-  //console.log(posted);
+  // console.log(posted);
   //console.log(hideAll);
   hideAll.className = "hideBtn";
+  if (!search) {
+    for (let i = 0; i < posted.length; i++) {
+      if (i >= 3) {
+        posted[i].className = "blg_hide";
+      }
+    }
+  } else {
+    for (let i = 0; i < posted.length; i++) {
+      const authorName =
+        posted[i].childNodes[1].children[1].innerHTML.toUpperCase();
+      const blogTitle =
+        posted[i].childNodes[3].children[0].children[1].innerHTML.toUpperCase();
+      console.log(blogTitle);
+      // if (
+      //   authorName.indexOf(search.toUpperCase()) > -1 ||
+      //   blogTitle.indexOf(search.toUpperCase()) > -1
+      // ) {
+      //   // posted[i].className = "blg_mn_pst_cntnr";
+      //   posted[i].style.margin = "20px";
 
-  for (let i = 0; i < posted.length; i++) {
-    if (i >= 3) {
-      posted[i].className = "blg_hide";
+      //   // if (posted2.length >= 3) {
+      //   //   showMore.className = "show_more";
+      //   // } else if (posted2.length === 0) {
+      //   //   showMore.className = "hideBtn";
+      //   // } else {
+      //   //   showMore.className = "hideBtn";
+      //   // }
+      // } else {
+      //   posted[i].className = "blg_hide";
+      //   showMore.className = "hideBtn";
+      // }
+      if (
+        authorName.indexOf(search.toUpperCase()) > -1 ||
+        blogTitle.indexOf(search.toUpperCase()) > -1
+      ) {
+        posted[i].style.display = "";
+        posted[i].classList.add("filtered");
+        posted[i].style.margin = "20px";
+      } else {
+        posted[i].style.display = "none";
+      }
+    }
+    const filtered = document.querySelectorAll(".filtered");
+    console.log(filtered);
+    if (filtered.length === 0) {
+      searchCont.style.display = "flex";
+      showMore.style.display = "none";
+    } else if (filtered.length >= 1 && filtered.length <= 2) {
+      searchCont.style.display = "none";
+      showMore.style.display = "none";
+    } else {
+      showMore.style.display = "flex";
     }
   }
 }
