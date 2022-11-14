@@ -18,6 +18,7 @@ async function apiCall() {
   try {
     const post = await fetch(url1);
     const result = await post.json();
+    console.log(result);
 
     latestPost.innerHTML = "";
     for (let i = 0; i < result.length; i++) {
@@ -79,6 +80,8 @@ async function gravatarApi(pic, post) {
             </div>
         </div>
     </div>`;
+    const authName = document.querySelectorAll(".blg_title");
+    console.log(authName);
     const usrPc = document.querySelectorAll(".usr_prfl_pc");
     console.log(usrPc);
     usrPc.forEach((userX) => {

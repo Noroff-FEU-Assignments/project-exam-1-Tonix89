@@ -10,6 +10,17 @@ const modalPost = document.querySelector(".modal_post");
 const close = document.querySelector(".close");
 modalCont.style.display = "none";
 
+const srchForm = document.querySelector(".srch_br");
+const searchButton = document.getElementById("srch_bttn");
+function searchForm(event) {
+  event.preventDefault();
+
+  searchButton.onclick = function () {
+    window.location.href = "blog.html";
+  };
+}
+srchForm.addEventListener("submit", searchForm);
+
 const queryString = document.location.search;
 
 const params = new URLSearchParams(queryString);

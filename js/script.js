@@ -11,6 +11,17 @@ const modalPost = document.querySelector(".modal_post");
 const close = document.querySelector(".close");
 modalCont.style.display = "none";
 
+const srchForm = document.querySelector(".srch_br");
+const searchButton = document.getElementById("srch_bttn");
+function searchForm(event) {
+  event.preventDefault();
+
+  searchButton.onclick = function () {
+    window.location.href = "blog.html";
+  };
+}
+srchForm.addEventListener("submit", searchForm);
+
 const latestPost = document.querySelector(".post_cont");
 const url1 = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts";
 console.log(url1);
