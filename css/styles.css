@@ -822,7 +822,7 @@ h6{
     }
 }
 
-@media screen and (max-width: 330px){
+@media screen and (max-width: 360px){
     .srch_br input {
         width: 155px;
         right: 10px;
