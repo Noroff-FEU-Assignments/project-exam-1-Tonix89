@@ -33,7 +33,7 @@
                 <input type="checkbox" id="hmbgr">
                 <nav class="hdr_nav">
                     <ul>
-                        <li class="active"><a href="index.html">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="blog.html">Blog</a></li>
                         <li><a href="contact.html">Contact</a></li>
                         <li><a href="about.html">About</a></li>
@@ -50,33 +50,51 @@
         </div>
     </header>
 
-    <main>
-        <div class="ndx_mn_div mn_div">
-            <h1>Latest Post</h1>
-            <div class="ndx_mn_cntnr">
-                <div id="modal">
+    <main class="feedback_main">
+        <h1>Feedback Form</h1>
+        <div class="cntct_mn_div">
+            <h3 id="successMessage"></h3>
+            <div class="cntct_mn_cntnr">
+                <form id="feedback_form">
                     <div>
-                        <button class="close"><label>X</label></button>
+                        <p>I would like your feedback to improve my website.</p>
                     </div>
-                    <div class="modal_post"></div> 
-                    <div class="sme_cntnt">
-                    </div>        
-                </div>
-                <button class="sld_lf_cn" value="-2" ><label><img src="icons/Slide Left.svg" alt="slide left icon"></label></button>
-                <div class="post_cont">
-                    <div class="ldr">
-                        <span class="crl"></span>
-                        <span class="crl"></span>
-                        <span class="crl"></span>
-                        <span class="crl"></span>
+                    <div>
+                        <p class="xprcn">How is your experience?</p>
+                        <div class="formError" id="xprcnError">Please choose what you feel</div>
+                        <div class="fdbck_emojis">
+                            <div>
+                                <button type="button"  value="confuse"><label id="confuse" class="old">&#128533</label></button>
+                            </div>
+                            <div>
+                                <button type="button" value="sad"><label id="sad" class="old">&#128542</label></button>
+                            </div>
+                            <div>
+                                <button type="button"  value="normal"><label id="normal" class="old">&#128528</label></button>
+                            </div>
+                            <div>
+                                <button  type="button" value="happy"><label id="happy" class="old">&#128522</label></button>
+                            </div>
+                            <div>
+                                <button type="button"  value="love"><label id="love" class="old">&#128525</label></button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <button class="sld_rght_cn" value="2"><label><img src="icons/Slide right.svg" alt="slide left icon"></label></button>
+                    <div class="required">
+                        <div>
+                            <div class="fdbck">
+                                <label>
+                                    Please leave your feedback below
+                                </label>
+                            </div>
+                                <textarea id="message" ></textarea>
+                                <div class="formError" id="messageError">Please write a message, at least 25 characters long</div>
+                        </div>
+                        
+                    </div>
+                    <button class="submit">Submit</button>
+                </form>
             </div>
-        </div>
-        <div class="feedback">
-            <a href="feedback.html" class="feedback"><img src="icons/Feedback Icon.svg" alt="This is a feedback icon"></a>
-            <div class="fdbck_p"><p>Give some feedback</p></div>
         </div>
     </main>
     
@@ -93,6 +111,6 @@
             <p>Copyright &#169; Tonix2022. All rights reserved.</p>
         </div>
     </footer>
-    <script src="js/script.js" type="module"></script>
+    <script src="js/feedback.js" type="module"></script>
 </body>
 </html>

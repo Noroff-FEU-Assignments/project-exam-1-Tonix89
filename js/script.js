@@ -34,7 +34,7 @@ async function apiCall() {
     const post = await fetch(url1);
     const result = await post.json();
 
-    console.log(result);
+    // console.log(result);
     latestPost.innerHTML = "";
     for (let i = 0; i < result.length; i++) {
       const post = result[i];

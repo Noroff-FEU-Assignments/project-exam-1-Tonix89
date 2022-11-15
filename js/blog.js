@@ -142,24 +142,6 @@ function hidePost() {
       const blogTitle =
         posted[i].childNodes[3].children[0].children[1].innerHTML.toUpperCase();
       console.log(blogTitle);
-      // if (
-      //   authorName.indexOf(search.toUpperCase()) > -1 ||
-      //   blogTitle.indexOf(search.toUpperCase()) > -1
-      // ) {
-      //   // posted[i].className = "blg_mn_pst_cntnr";
-      //   posted[i].style.margin = "20px";
-
-      //   // if (posted2.length >= 3) {
-      //   //   showMore.className = "show_more";
-      //   // } else if (posted2.length === 0) {
-      //   //   showMore.className = "hideBtn";
-      //   // } else {
-      //   //   showMore.className = "hideBtn";
-      //   // }
-      // } else {
-      //   posted[i].className = "blg_hide";
-      //   showMore.className = "hideBtn";
-      // }
       if (
         authorName.indexOf(search.toUpperCase()) > -1 ||
         blogTitle.indexOf(search.toUpperCase()) > -1
