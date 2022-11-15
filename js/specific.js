@@ -20,11 +20,6 @@ const id = params.get("id");
 
 //console.log(id);
 
-const fbShare = document.querySelector(".fb-share-button");
-const link = window.location.href;
-
-fbShare.innerHTML += `<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}?id=${id}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>`;
-
 const srchForm = document.querySelector(".srch_br");
 const inputValue = document.getElementById("input_value");
 // console.log(inputValue.value);
@@ -177,3 +172,8 @@ async function userInfo(url3) {
     latestPost.innerHTML = message("error", error);
   }
 }
+
+const fbShare = document.querySelector(".fb-share-button");
+const link = window.location.href;
+
+fbShare.innerHTML = `<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}?id=${id}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>`;
