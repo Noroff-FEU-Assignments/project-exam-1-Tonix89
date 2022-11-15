@@ -150,6 +150,7 @@ async function postApi() {
 
     document.querySelector(".hide_section").className = "cmmnts_sctn";
     document.title = "My Devotion" + "|" + verseHead + "|" + userName;
+    document.getElementsByTagName("META")[3].content = link + "?id=" + id;
     document.getElementsByTagName("META")[5].content = document.title;
     document.getElementsByTagName("META")[6].content = verse;
     document.getElementsByTagName("META")[7].content = feat;
