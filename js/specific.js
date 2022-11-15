@@ -10,6 +10,11 @@ const modalPost = document.querySelector(".modal_post");
 const close = document.querySelector(".close");
 modalCont.style.display = "none";
 
+const fbShare = document.querySelector(".fb-share-button");
+const link = window.location.href;
+
+fbShare.innerHTML += `<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>`;
+
 const queryString = document.location.search;
 
 const params = new URLSearchParams(queryString);

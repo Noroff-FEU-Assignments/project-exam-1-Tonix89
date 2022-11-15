@@ -753,13 +753,29 @@ margin: 40px;
 /** ------------------- Footer ------------------**/
 
 footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 
 h6{
     font-size: 12px;
+    margin-bottom: 5px;
+}
+.scl_md{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+}
+.scl_md img{
+ width: 28px;
 }
 
+footer p{
+    font: bold 14px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+}
 
 /*------------------ Media Queries ---------------*/
 
