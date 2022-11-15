@@ -162,8 +162,6 @@ async function postApi() {
 
 postApi();
 
-fbShare.innerHTML = `<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}?id=${id}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>`;
-
 async function userInfo(url3) {
   try {
     const userData = await fetch(url3);
@@ -178,3 +176,5 @@ async function userInfo(url3) {
     latestPost.innerHTML = message("error", error);
   }
 }
+
+fbShare.innerHTML = `<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}?id=${id}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>`;
