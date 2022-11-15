@@ -152,6 +152,9 @@ async function postApi() {
 
     document.querySelector(".hide_section").className = "cmmnts_sctn";
     document.title = "My Devotion" + "|" + verseHead + "|" + userName;
+    document.getElementsByTagName("META")[5].content = document.title;
+    document.getElementsByTagName("META")[6].content = verse;
+    document.getElementsByTagName("META")[7].content = feat;
   } catch (error) {
     //console.log(error);
     postCont.innerHTML = message("error", error);
