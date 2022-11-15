@@ -10,9 +10,9 @@ const inputValue = document.getElementById("input_value");
 // console.log(inputValue.value);
 
 const emoji = document.querySelectorAll(".fdbck_emojis button");
-console.log(emoji);
+// console.log(emoji);
 const label = document.querySelectorAll(".old");
-console.log(label);
+// console.log(label);
 
 emoji.forEach((emojiBtn) => {
   emojiBtn.onclick = function () {
@@ -47,7 +47,7 @@ const url = "https://formspree.io/f/xbjbwrav";
 function validateForm(event) {
   event.preventDefault();
   let txtarea = document.querySelector("textarea");
-  console.log(txtarea.placeholder);
+  //   console.log(txtarea.placeholder);
   let x = "";
   if (txtarea.placeholder) {
     x = txtarea.placeholder;

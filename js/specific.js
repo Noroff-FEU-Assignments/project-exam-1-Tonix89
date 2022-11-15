@@ -150,6 +150,10 @@ async function postApi() {
     document.getElementsByTagName("META")[5].content = document.title;
     document.getElementsByTagName("META")[6].content = verse;
     document.getElementsByTagName("META")[7].content = feat;
+    const fbShare = document.querySelector(".fb-share-button");
+    const link = window.location.href;
+
+    fbShare.innerHTML = `<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}?id=${id}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>`;
   } catch (error) {
     //console.log(error);
     postCont.innerHTML = message("error", error);
@@ -172,8 +176,3 @@ async function userInfo(url3) {
     latestPost.innerHTML = message("error", error);
   }
 }
-
-const fbShare = document.querySelector(".fb-share-button");
-const link = window.location.href;
-
-fbShare.innerHTML = `<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}?id=${id}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>`;
