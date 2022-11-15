@@ -10,7 +10,7 @@ const modalPost = document.querySelector(".modal_post");
 const close = document.querySelector(".close");
 modalCont.style.display = "none";
 
-const fbShare = document.querySelector(".fb-share-button");
+const fbShare = document.querySelector(".fblink");
 const link = window.location.href;
 
 const queryString = document.location.search;
@@ -177,4 +177,4 @@ async function userInfo(url3) {
   }
 }
 
-fbShare.innerHTML = `<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}?id=${id}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a>`;
+fbShare.innerHTML = `<div class="fb-share-button" data-href="${link}?id=${id}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}?id=${id}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>`;
