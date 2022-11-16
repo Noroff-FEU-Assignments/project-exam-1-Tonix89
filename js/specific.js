@@ -189,6 +189,6 @@ function shareLink(verseHead, userName, verse, feat) {
     .querySelector("meta[property='og:description']")
     .setAttribute("content", verse);
   document
-    .querySelector("meta[property='og:image']")
+    .querySelector("meta[property='og:image:secure_url']")
     .setAttribute("content", feat);
 }
