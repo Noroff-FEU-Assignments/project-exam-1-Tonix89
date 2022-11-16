@@ -179,8 +179,8 @@ async function userInfo(url3) {
 
 function shareLink(verseHead, userName, verse, feat) {
   document.title = "My Devotion" + "|" + verseHead + "|" + userName;
-  document.getElementsByTagName("META")[3].content = link;
-  document.getElementsByTagName("META")[5].content = document.title;
-  document.getElementsByTagName("META")[6].content = verse;
-  document.getElementsByTagName("META")[7].content = feat;
+  document.getElementsByTagName("meta")["og:url"].content = link;
+  document.getElementsByTagName("meta")["og:title"].content = document.title;
+  document.getElementsByTagName("meta")["og:description"].content = verse;
+  document.getElementsByTagName("meta")["og:image"].content = feat;
 }
