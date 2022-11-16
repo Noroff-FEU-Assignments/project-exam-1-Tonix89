@@ -367,8 +367,9 @@ to {opacity: 1}
     overflow: hidden;
 
 }
-
-
+.hidden{
+    display: none;
+}
 .blg_paragraph p, .blg_paragraph h3{
     font-family: "Roboto", sans-serif;
     font-size: 14px;

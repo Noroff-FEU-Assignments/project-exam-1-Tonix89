@@ -29,13 +29,13 @@ async function apiCall() {
   try {
     const post = await fetch(url1);
     const result = await post.json();
-    //console.log(result);
+    // console.log(result);
 
     blogPost.innerHTML = "";
     for (let i = 0; i < result.length; i++) {
       const post = result[i];
       const content = post.content.rendered;
-      //console.log(content);
+      // console.log(content);
       const pic = post._links.author[0].href;
       //console.log(pic);
 
@@ -55,6 +55,7 @@ async function gravatarApi(pic, post) {
     const parag = document.querySelector(
       ".wp-block-group__inner-container"
     ).innerHTML;
+    const category = document.querySelector(".taxonomy-category").innerHTML;
     //console.log(parag);
     const userGravatar = await fetch(pic);
     const gravatarResult = await userGravatar.json();
@@ -88,6 +89,7 @@ async function gravatarApi(pic, post) {
             <div class="blg_pst_cta pst_cta">
                 <a href="blogspecific.html?id=${post.id}" class="rd_nw_cta blg_cta">Read Now</a>
             </div>
+            <div class="hidden">${category}</div>
         </div>
     </div>`;
     const usrPc = document.querySelectorAll(".usr_prfl_pc");
@@ -141,10 +143,15 @@ function hidePost() {
         posted[i].childNodes[1].children[1].innerHTML.toUpperCase();
       const blogTitle =
         posted[i].childNodes[3].children[0].children[1].innerHTML.toUpperCase();
-      console.log(blogTitle);
+      // console.log(blogTitle);
+      const categories =
+        posted[i].lastElementChild.lastElementChild.innerText.toUpperCase();
+      // console.log(categories);
+
       if (
         authorName.indexOf(search.toUpperCase()) > -1 ||
-        blogTitle.indexOf(search.toUpperCase()) > -1
+        blogTitle.indexOf(search.toUpperCase()) > -1 ||
+        categories.indexOf(search.toUpperCase()) > -1
       ) {
         posted[i].style.display = "";
         posted[i].classList.add("filtered");
@@ -162,7 +169,7 @@ function hidePost() {
       searchCont.style.display = "none";
       showMore.style.display = "none";
     } else {
-      showMore.style.display = "flex";
+      showMore.style.display = "none";
     }
   }
 }
