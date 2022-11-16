@@ -25,6 +25,9 @@ body{
     flex-direction: column;
     background-color: var(--light-orange);
     padding: 0 20%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 h1{
     font-size: 26px;
@@ -224,7 +227,9 @@ to {opacity: 1}
     flex-direction: column;
     align-items: center;
 }
-
+.pst_hd h1{
+    text-align: center;
+}
 
 .ndx_mn_pst_cntnr .pst_hd h4{
     font: 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
