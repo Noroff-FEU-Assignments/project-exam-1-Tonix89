@@ -35,7 +35,7 @@ function searchForm(event) {
   event.preventDefault();
   // console.log(inputValue.value);
   if (inputValue.value) {
-    window.location.href = "blog.html?search=" + inputValue.value;
+    window.location.href = "devotion.html?search=" + inputValue.value;
   } else {
     window.location.href = "feedback.html";
   }

@@ -18,14 +18,11 @@ const params = new URLSearchParams(queryString);
 
 const id = params.get("id");
 
-console.log(id);
+// console.log(id);
 
 const fbShare = document.querySelector(".fblink");
 const link = window.location.href;
-fbShare.innerHTML += `<div class="fb-share-button" 
-data-href="${link}" 
-data-layout="button_count">
-</div> `;
+fbShare.innerHTML = `<div class="fb-share-button" data-href="https://daily-devotion.netlify.app/blogspecific.html" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div> `;
 
 const srchForm = document.querySelector(".srch_br");
 const inputValue = document.getElementById("input_value");
@@ -34,7 +31,7 @@ function searchForm(event) {
   event.preventDefault();
   // console.log(inputValue.value);
   if (inputValue.value) {
-    window.location.href = "blog.html?search=" + inputValue.value;
+    window.location.href = "devotion.html?search=" + inputValue.value;
   } else {
     window.location.href = "blogspecific.html?id=" + id;
   }
@@ -47,7 +44,7 @@ const url1 = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts/" + id;
 const url2 =
   "https://tonix.site/daily-devotion/wp-json/wp/v2/comments?post=" + id;
 
-console.log(url2);
+// console.log(url2);
 
 async function commentApi() {
   try {
