@@ -20,6 +20,13 @@ const id = params.get("id");
 
 console.log(id);
 
+const fbShare = document.querySelector(".fblink");
+const link = window.location.href;
+fbShare.innerHTML += `<div class="fb-share-button" 
+data-href="${link}" 
+data-layout="button_count">
+</div> `;
+
 const srchForm = document.querySelector(".srch_br");
 const inputValue = document.getElementById("input_value");
 // console.log(inputValue.value);
@@ -169,14 +176,11 @@ async function userInfo(url3) {
     latestPost.innerHTML = message("error", error);
   }
 }
-// const fbShare = document.querySelector(".fblink");
-// const link = window.location.href;
 
 function shareLink(verseHead, userName, verse, feat) {
   document.title = "My Devotion" + "|" + verseHead + "|" + userName;
+  document.getElementsByTagName("META")[3].content = link;
   document.getElementsByTagName("META")[5].content = document.title;
   document.getElementsByTagName("META")[6].content = verse;
   document.getElementsByTagName("META")[7].content = feat;
-
-  //   fbShare.innerHTML += `<div class="fb-share-button" data-href="${link}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>`;
 }
