@@ -162,6 +162,7 @@ function hidePost() {
     }
     const filtered = document.querySelectorAll(".filtered");
     console.log(filtered);
+
     if (filtered.length === 0) {
       searchCont.style.display = "flex";
       showMore.style.display = "none";

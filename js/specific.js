@@ -21,7 +21,7 @@ const params = new URLSearchParams(queryString);
 
 const id = params.get("id");
 
-//console.log(id);
+console.log(id);
 
 const srchForm = document.querySelector(".srch_br");
 const inputValue = document.getElementById("input_value");
@@ -43,7 +43,7 @@ const url1 = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts/" + id;
 const url2 =
   "https://tonix.site/daily-devotion/wp-json/wp/v2/comments?post=" + id;
 
-//console.log(url2);
+console.log(url2);
 
 async function commentApi() {
   try {
@@ -150,7 +150,8 @@ async function postApi() {
 
     document.querySelector(".hide_section").className = "cmmnts_sctn";
     document.title = "My Devotion" + "|" + verseHead + "|" + userName;
-    document.getElementsByTagName("META")[3].content = link + "?id=" + id;
+    document.getElementsByTagName("META")[3].content = link;
+    console.log((document.getElementsByTagName("META")[3].content = link + id));
     document.getElementsByTagName("META")[5].content = document.title;
     document.getElementsByTagName("META")[6].content = verse;
     document.getElementsByTagName("META")[7].content = feat;
@@ -177,4 +178,4 @@ async function userInfo(url3) {
   }
 }
 
-fbShare.innerHTML = `<div class="fb-share-button" data-href="${link}?id=${id}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}?id=${id}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>`;
+fbShare.innerHTML = `<div class="fb-share-button" data-href="${link}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>`;
