@@ -137,7 +137,7 @@ async function postApi() {
       //console.log(featImg);
       // console.log(modalPost);
       modalCont.style.display = "flex";
-      modalPost.innerHTML = `<div class="user_info"><img src="${feat}"> </div>`;
+      modalPost.innerHTML = `<div class="featured_image"><img src="${feat}"> </div>`;
       close.onclick = function () {
         modalCont.style.display = "none";
       };
@@ -188,6 +188,9 @@ function shareLink(verseHead, userName, verse, feat) {
   document
     .querySelector("meta[property='og:description']")
     .setAttribute("content", verse);
+  document
+    .querySelector("meta[property='og:image']")
+    .setAttribute("content", feat);
   document
     .querySelector("meta[property='og:image:secure_url']")
     .setAttribute("content", feat);
