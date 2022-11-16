@@ -10,9 +10,6 @@ const modalPost = document.querySelector(".modal_post");
 const close = document.querySelector(".close");
 modalCont.style.display = "none";
 
-const fbShare = document.querySelector(".fblink");
-const link = window.location.href;
-
 const queryString = document.location.search;
 
 const params = new URLSearchParams(queryString);
@@ -149,12 +146,7 @@ async function postApi() {
     };
 
     document.querySelector(".hide_section").className = "cmmnts_sctn";
-    document.title = "My Devotion" + "|" + verseHead + "|" + userName;
-    document.getElementsByTagName("META")[3].content = link;
-    console.log((document.getElementsByTagName("META")[3].content = link + id));
-    document.getElementsByTagName("META")[5].content = document.title;
-    document.getElementsByTagName("META")[6].content = verse;
-    document.getElementsByTagName("META")[7].content = feat;
+    shareLink(verseHead, userName, verse, feat);
   } catch (error) {
     //console.log(error);
     postCont.innerHTML = message("error", error);
@@ -177,5 +169,14 @@ async function userInfo(url3) {
     latestPost.innerHTML = message("error", error);
   }
 }
+// const fbShare = document.querySelector(".fblink");
+// const link = window.location.href;
 
-fbShare.innerHTML = `<div class="fb-share-button" data-href="${link}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>`;
+function shareLink(verseHead, userName, verse, feat) {
+  document.title = "My Devotion" + "|" + verseHead + "|" + userName;
+  document.getElementsByTagName("META")[5].content = document.title;
+  document.getElementsByTagName("META")[6].content = verse;
+  document.getElementsByTagName("META")[7].content = feat;
+
+  //   fbShare.innerHTML += `<div class="fb-share-button" data-href="${link}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>`;
+}
