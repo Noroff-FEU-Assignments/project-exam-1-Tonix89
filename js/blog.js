@@ -12,7 +12,8 @@ const modalPost = document.querySelector(".modal_post");
 const close = document.querySelector(".close");
 modalCont.style.display = "none";
 
-const url1 = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts";
+const url1 =
+  "https://tonix.site/daily-devotion/wp-json/wp/v2/posts?per_page=100";
 //console.log(url1);
 
 const queryString = document.location.search;

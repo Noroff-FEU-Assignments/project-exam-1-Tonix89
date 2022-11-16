@@ -316,6 +316,9 @@ to {opacity: 1}
     z-index: 5;
 
 }
+#modal{
+    position: fixed;
+}
 #abt_modal img{
     max-width: 100%;
     border-radius: 0%;
