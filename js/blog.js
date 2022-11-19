@@ -104,8 +104,11 @@ async function gravatarApi(pic, post) {
         userInfo(url2);
       };
     });
-    hidePost();
-    hiddenPost();
+    if (search) {
+      hiddenFilteredPost();
+    } else {
+      hidePost();
+    }
   } catch (error) {
     console.log(error);
     blogPost.innerHTML = message("error", error);
@@ -129,49 +132,69 @@ async function userInfo(url2) {
 
 function hidePost() {
   const posted = document.querySelectorAll(".blg_mn_pst_cntnr");
-  // console.log(posted);
+  // console.log(posted.length);
   //console.log(hideAll);
   hideAll.className = "hideBtn";
-  if (!search) {
-    for (let i = 0; i < posted.length; i++) {
-      if (i >= 3) {
-        posted[i].className = "blg_hide";
-      }
+  for (let i = 0; i < posted.length; i++) {
+    if (i >= 3) {
+      posted[i].className = "blg_hide";
     }
-  } else {
-    for (let i = 0; i < posted.length; i++) {
-      const authorName =
-        posted[i].childNodes[1].children[1].innerHTML.toUpperCase();
-      const blogTitle =
-        posted[i].childNodes[3].children[0].children[1].innerHTML.toUpperCase();
-      // console.log(blogTitle);
-      const categories =
-        posted[i].lastElementChild.lastElementChild.innerText.toUpperCase();
-      // console.log(categories);
+  }
+  hiddenPost();
+}
 
-      if (
-        authorName.indexOf(search.toUpperCase()) > -1 ||
-        blogTitle.indexOf(search.toUpperCase()) > -1 ||
-        categories.indexOf(search.toUpperCase()) > -1
-      ) {
-        posted[i].style.display = "";
-        posted[i].classList.add("filtered");
-        posted[i].style.margin = "20px";
-      } else {
-        posted[i].style.display = "none";
-      }
-    }
-    const filtered = document.querySelectorAll(".filtered");
-    console.log(filtered);
-
-    if (filtered.length === 0) {
+function hiddenFilteredPost() {
+  const posted = document.querySelectorAll(".blg_mn_pst_cntnr");
+  // console.log(posted.length);
+  //console.log(hideAll);
+  hideAll.className = "hideBtn";
+  for (let i = 0; i < posted.length; i++) {
+    const authorName =
+      posted[i].childNodes[1].children[1].innerHTML.toUpperCase();
+    const blogTitle =
+      posted[i].childNodes[3].children[0].children[1].innerHTML.toUpperCase();
+    // console.log(blogTitle);
+    const categories =
+      posted[i].lastElementChild.lastElementChild.innerText.toUpperCase();
+    // console.log(categories);
+    if (posted.length === 0) {
       searchCont.style.display = "flex";
-      showMore.style.display = "none";
-    } else if (filtered.length >= 1 && filtered.length <= 2) {
-      searchCont.style.display = "none";
-      showMore.style.display = "none";
+    }
+    if (
+      authorName.indexOf(search.toUpperCase()) > -1 ||
+      blogTitle.indexOf(search.toUpperCase()) > -1 ||
+      categories.indexOf(search.toUpperCase()) > -1
+    ) {
+      posted[i].className = "filtered";
+      continue;
     } else {
-      showMore.style.display = "none";
+      posted[i].className = "blg_filtered_hide";
+    }
+  }
+  filteringPost();
+}
+
+function filteringPost() {
+  const filteredPost = document.querySelectorAll(".filtered");
+  // console.log(filteredPost.length);
+  if (filteredPost.length === 0) {
+    searchCont.style.display = "flex";
+    showMore.style.display = "none";
+  }
+  if (filteredPost.length >= 1 && filteredPost.length <= 2) {
+    searchCont.style.display = "none";
+    showMore.style.display = "none";
+    for (let i = 0; i < filteredPost.length; i++) {
+      filteredPost[i].style.margin = "20px";
+    }
+  }
+  if (filteredPost.length >= 3) {
+    showMore.style.display = "flex";
+    for (let i = 0; i < filteredPost.length; i++) {
+      if (i >= 3) {
+        filteredPost[i].className = "blg_hide";
+      }
+      hiddenPost();
     }
   }
 }
@@ -187,7 +210,11 @@ function hiddenPost() {
   hideAll.onclick = function () {
     document.querySelector(".hideBtn").className = "show_more";
     y = 0;
-    hidePost();
+    if (search) {
+      hiddenFilteredPost();
+    } else {
+      hidePost();
+    }
   };
 
   const blogHide = document.querySelectorAll(".blg_hide");
@@ -195,13 +222,26 @@ function hiddenPost() {
 
   function showPost(x) {
     //console.log(x);
-    for (let i = 0; i < blogHide.length; i++) {
-      if (i < x) {
-        blogHide[i].className = "blg_mn_pst_cntnr";
+    if (search) {
+      for (let i = 0; i < blogHide.length; i++) {
+        if (i < x) {
+          blogHide[i].className = "filtered";
+        }
+        if (x >= blogHide.length) {
+          document.querySelector(".hideBtn").className = "hide_all";
+          showMore.className = "hideBtn";
+          document.querySelector(".hideBtn").style.display = "none";
+        }
       }
-      if (x >= blogHide.length) {
-        document.querySelector(".hideBtn").className = "hide_all";
-        showMore.className = "hideBtn";
+    } else {
+      for (let i = 0; i < blogHide.length; i++) {
+        if (i < x) {
+          blogHide[i].className = "blg_mn_pst_cntnr";
+        }
+        if (x >= blogHide.length) {
+          document.querySelector(".hideBtn").className = "hide_all";
+          showMore.className = "hideBtn";
+        }
       }
     }
   }

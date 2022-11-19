@@ -219,7 +219,7 @@ to {opacity: 1}
     width: 20px;
 }
 
-.hide , .blg_hide, .hideBtn{
+.hide , .blg_hide, .hideBtn, .blg_filtered_hide{
     display: none;
 }
 .pst_hd, .bible, .pst_cta{
@@ -372,7 +372,7 @@ to {opacity: 1}
 
 /*---------------- Blog Post Main Container --------------*/
 
-.blg_mn_pst_cntnr, .search_cont{
+.blg_mn_pst_cntnr, .search_cont, .filtered{
     display: flex;
     flex-direction: row;
     margin: 20px 20px 0 20px;
@@ -506,6 +506,11 @@ hr{
     font-size: 16px;
     font-weight: bold;
     text-indent: 50px;
+}
+.parag h6{
+    font: bold italic 16px "Segoe UI";
+    flex-direction: row-reverse;
+    display: flex;
 }
 .blg_spcfc_pst .verse{
     font: 500 italic 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
