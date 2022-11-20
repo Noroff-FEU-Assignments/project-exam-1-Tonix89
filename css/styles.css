@@ -25,9 +25,7 @@ body{
     flex-direction: column;
     background-color: var(--light-orange);
     padding: 0 20%;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+    height : 100vh;
 }
 h1{
     font-size: 26px;
@@ -146,6 +144,9 @@ header li a{
 }
 
 /** -------------------- Main -------------------**/
+.ndx_mn, .contact, .fdbck_mn,.about{
+    height: 100vh;
+}
 
 .blg_main, .cntct_main, .abt_main{
     margin-top:30px;

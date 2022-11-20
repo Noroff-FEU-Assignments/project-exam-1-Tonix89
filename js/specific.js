@@ -22,7 +22,6 @@ const id = params.get("id");
 
 const fbShare = document.querySelector(".fblink");
 const link = window.location.href;
-fbShare.innerHTML = `<div class="fb-share-button" data-href="${link}" data-layout="button_count" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div> `;
 
 const srchForm = document.querySelector(".srch_br");
 const inputValue = document.getElementById("input_value");
@@ -150,7 +149,26 @@ async function postApi() {
     };
 
     document.querySelector(".hide_section").className = "cmmnts_sctn";
-    shareLink(verseHead, userName, verse, feat);
+    document.title = "My Devotion" + "|" + verseHead + "|" + userName;
+    document
+      .querySelector("meta[property='og:url']")
+      .setAttribute("content", link);
+    document
+      .querySelector("meta[property='og:title']")
+      .setAttribute("content", document.title);
+    document
+      .querySelector("meta[property='og:description']")
+      .setAttribute("content", verse);
+    document
+      .querySelector("meta[property='og:image']")
+      .setAttribute("content", feat);
+    document
+      .querySelector("meta[property='og:image:secure_url']")
+      .setAttribute("content", feat);
+    fbShare.innerHTML = `<div class="fb-share-button" 
+data-href="${link}" 
+data-layout="button_count">
+</div>`;
   } catch (error) {
     //console.log(error);
     postCont.innerHTML = message("error", error);
@@ -172,23 +190,4 @@ async function userInfo(url3) {
     console.log(error);
     latestPost.innerHTML = message("error", error);
   }
-}
-
-function shareLink(verseHead, userName, verse, feat) {
-  document.title = "My Devotion" + "|" + verseHead + "|" + userName;
-  document
-    .querySelector("meta[property='og:url']")
-    .setAttribute("content", link);
-  document
-    .querySelector("meta[property='og:title']")
-    .setAttribute("content", document.title);
-  document
-    .querySelector("meta[property='og:description']")
-    .setAttribute("content", verse);
-  document
-    .querySelector("meta[property='og:image']")
-    .setAttribute("content", feat);
-  document
-    .querySelector("meta[property='og:image:secure_url']")
-    .setAttribute("content", feat);
 }

@@ -50,60 +50,62 @@
         </div>
     </header>
 
-    <main class="cntct_main">
-        <div class="cntct_mn_div">
-            <h3 id="successMessage"></h3>
-            <div class="cntct_mn_cntnr">
-                <form id="cntct_form">
-                    <div class="required">
-                        <label>
-                            Fullname
-                        </label>
-                        <div>
-                            <div class="infoTxt">At least 5 characters long</div>
-                            <input name="fullname" id="fullname" placeholder="Ex. John Doe"/>
-                            <div class="formError" id="fullnameError">Please enter your fullname</div>
-                        </div>
-                    </div>
-                    <div class="required">
-                        <label>
-                            Email
-                        </label>
-                        <div>
-                            <div class="infoTxt">Must be a valid email</div>
-                            <input name="email" id="email" placeholder="Ex. johndoe@yahoo.com"/>
-                            <div class="formError" id="emailError">Please enter a valid email address</div>
-                        </div>
-                    </div>
-                    <div class="required">
-                        <label>
-                            Subject
-                        </label>
-                        <div>
-                            <div class="infoTxt">At least 15 characters long</div>
-                            <input name="subject" id="subject" placeholder="atleast 15 characters"/>
-                            <div class="formError" id="subjectError">Please write subject</div>
-                        </div>
-                    </div>
-                    <div class="required">
-                        <div>
-                            <div class="mssg">
-                                <label>
-                                    Message
-                                </label>
-                                <div class="infoTxt">Maximum of 200 characters</div>
+    <main class="contact">
+        <div class="cntct_main">
+            <div class="cntct_mn_div">
+                <h3 id="successMessage"></h3>
+                <div class="cntct_mn_cntnr">
+                    <form id="cntct_form">
+                        <div class="required">
+                            <label>
+                                Fullname
+                            </label>
+                            <div>
+                                <div class="infoTxt">At least 5 characters long</div>
+                                <input name="fullname" id="fullname" placeholder="Ex. John Doe"/>
+                                <div class="formError" id="fullnameError">Please enter your fullname</div>
                             </div>
-                                <textarea id="message"  placeholder="Write your message here..."></textarea>
-                                <div class="formError" id="messageError">Please write a message, at least 25 characters long</div>
                         </div>
-                        
-                    </div>
-                    <button>Submit</button>
-                </form>
-            </div>
-            <div class="feedback">
-                <a href="feedback.html" class="feedback"><img src="icons/Feedback Icon.svg" alt="This is a feedback icon"></a>
-                <div class="fdbck_p"><p>Give some feedback</p></div>
+                        <div class="required">
+                            <label>
+                                Email
+                            </label>
+                            <div>
+                                <div class="infoTxt">Must be a valid email</div>
+                                <input name="email" id="email" placeholder="Ex. johndoe@yahoo.com"/>
+                                <div class="formError" id="emailError">Please enter a valid email address</div>
+                            </div>
+                        </div>
+                        <div class="required">
+                            <label>
+                                Subject
+                            </label>
+                            <div>
+                                <div class="infoTxt">At least 15 characters long</div>
+                                <input name="subject" id="subject" placeholder="atleast 15 characters"/>
+                                <div class="formError" id="subjectError">Please write subject</div>
+                            </div>
+                        </div>
+                        <div class="required">
+                            <div>
+                                <div class="mssg">
+                                    <label>
+                                        Message
+                                    </label>
+                                    <div class="infoTxt">Maximum of 200 characters</div>
+                                </div>
+                                    <textarea id="message"  placeholder="Write your message here..."></textarea>
+                                    <div class="formError" id="messageError">Please write a message, at least 25 characters long</div>
+                            </div>
+                            
+                        </div>
+                        <button>Submit</button>
+                    </form>
+                </div>
+                <div class="feedback">
+                    <a href="feedback.html" class="feedback"><img src="icons/Feedback Icon.svg" alt="This is a feedback icon"></a>
+                    <div class="fdbck_p"><p>Give some feedback</p></div>
+                </div>
             </div>
         </div>
     </main>
