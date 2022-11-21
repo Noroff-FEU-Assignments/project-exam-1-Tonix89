@@ -20,12 +20,12 @@ const id = params.get("id");
 
 // console.log(id);
 
-const fbShare = document.querySelector(".fblink");
+// const fbShare = document.querySelector(".fblink");
 const link = window.location.href;
-fbShare.innerHTML = `<div class="fb-share-button" 
-data-href="${link}" 
-data-layout="button_count">
-</div>`;
+// fbShare.innerHTML = `<div class="fb-share-button"
+// data-href="${link}"
+// data-layout="button_count">
+// </div>`;
 
 const srchForm = document.querySelector(".srch_br");
 const inputValue = document.getElementById("input_value");
