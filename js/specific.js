@@ -22,6 +22,10 @@ const id = params.get("id");
 
 const fbShare = document.querySelector(".fblink");
 const link = window.location.href;
+fbShare.innerHTML = `<div class="fb-share-button" 
+data-href="${link}" 
+data-layout="button_count">
+</div>`;
 
 const srchForm = document.querySelector(".srch_br");
 const inputValue = document.getElementById("input_value");
@@ -165,10 +169,6 @@ async function postApi() {
     document
       .querySelector("meta[property='og:image:secure_url']")
       .setAttribute("content", feat);
-    fbShare.innerHTML = `<div class="fb-share-button" 
-data-href="${link}" 
-data-layout="button_count">
-</div>`;
   } catch (error) {
     //console.log(error);
     postCont.innerHTML = message("error", error);
