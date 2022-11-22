@@ -23,7 +23,7 @@ const id = params.get("id");
 const fbShare = document.querySelector(".fblink");
 const link = window.location.href;
 fbShare.innerHTML = `
-<div class="fb-share-button" data-href="${link}" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>`;
+<div class="fb-share-button" data-href="${link}" data-layout="button_count" data-size="large" data-lazy="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>`;
 // fbShare.innerHTML = `<div class="fb-share-button"
 // data-href="${link}"
 // data-layout="button_count">
