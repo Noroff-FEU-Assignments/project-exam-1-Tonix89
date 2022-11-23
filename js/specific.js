@@ -109,6 +109,24 @@ async function postApi() {
       ".wp-block-group__inner-container"
     ).innerHTML;
 
+    document.querySelector(".hide_section").className = "cmmnts_sctn";
+    document.title = "My Devotion" + "|" + verseHead + "|" + userName;
+    document
+      .querySelector("meta[property='og:url']")
+      .setAttribute("content", link);
+    document
+      .querySelector("meta[property='og:title']")
+      .setAttribute("content", document.title);
+    document
+      .querySelector("meta[property='og:description']")
+      .setAttribute("content", verse);
+    document
+      .querySelector("meta[property='og:image']")
+      .setAttribute("content", feat);
+    document
+      .querySelector("meta[property='og:image:secure_url']")
+      .setAttribute("content", feat);
+
     postCont.innerHTML += `<div class="blg_spcfc_pst">
                             <div class= "feat_cont">
                             <button class="feat_img"><label><img src="${feat}"></label></button>
@@ -153,24 +171,6 @@ async function postApi() {
       //console.log(url3);
       userInfo(url3);
     };
-
-    document.querySelector(".hide_section").className = "cmmnts_sctn";
-    document.title = "My Devotion" + "|" + verseHead + "|" + userName;
-    document
-      .querySelector("meta[property='og:url']")
-      .setAttribute("content", link);
-    document
-      .querySelector("meta[property='og:title']")
-      .setAttribute("content", document.title);
-    document
-      .querySelector("meta[property='og:description']")
-      .setAttribute("content", verse);
-    document
-      .querySelector("meta[property='og:image']")
-      .setAttribute("content", feat);
-    document
-      .querySelector("meta[property='og:image:secure_url']")
-      .setAttribute("content", feat);
   } catch (error) {
     //console.log(error);
     postCont.innerHTML = message("error", error);
