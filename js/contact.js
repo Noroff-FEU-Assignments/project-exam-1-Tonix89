@@ -24,7 +24,8 @@ function searchForm(event) {
 }
 srchForm.addEventListener("submit", searchForm);
 
-const url = "https://formspree.io/f/xbjbwrav";
+const url =
+  "https://www.tonix.site/daily-devotion/wp-json/contact-form-7/v1/contact-forms/182/feedback";
 
 function validateForm(event) {
   event.preventDefault();
@@ -60,12 +61,12 @@ function validateForm(event) {
     validateLength(subject.value, 15) === true &&
     validateLength(fullname.value, 6) === true
   ) {
-    const formData = {
-      author_name: fullname.value,
-      author_email: email.value,
-      content: message.value,
-    };
-    postData(url, formData);
+    const data = new FormData();
+    data.append("your-name", fullname.value);
+    data.append("your-email", email.value);
+    data.append("your-subject", subject.value);
+    data.append("your-message", message.value);
+    postData(data);
     successMessage.innerHTML = "Message Sent!";
     formContainer.style.display = "none";
   }
@@ -87,18 +88,15 @@ function validateEmail(email) {
   return patternMatches;
 }
 
-async function postData(url, data) {
+async function postData(data) {
   const response = await fetch(url, {
     method: "POST",
     mode: "cors",
     cache: "no-cache",
     credentials: "same-origin",
-    headers: {
-      "Content-Type": "application/json",
-    },
     redirect: "follow",
     referrerPolicy: "no-referrer",
-    body: JSON.stringify(data),
+    body: data,
   });
   return response.json();
 }

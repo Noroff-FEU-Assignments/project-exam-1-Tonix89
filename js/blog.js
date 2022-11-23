@@ -136,7 +136,7 @@ function hidePost() {
   //console.log(hideAll);
   hideAll.className = "hideBtn";
   for (let i = 0; i < posted.length; i++) {
-    if (i >= 3) {
+    if (i >= 10) {
       posted[i].className = "blg_hide";
     }
   }
