@@ -42,7 +42,6 @@ function searchForm(event) {
 }
 srchForm.addEventListener("submit", searchForm);
 
-// const url = "https://formspree.io/f/xbjbwrav";
 const url =
   "https://www.tonix.site/daily-devotion/wp-json/contact-form-7/v1/contact-forms/201/feedback";
 

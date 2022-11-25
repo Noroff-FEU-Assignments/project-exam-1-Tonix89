@@ -1,5 +1,6 @@
 import { message } from "./message/message.js";
 import { getUser } from "./home/modal.js";
+import { metaTags } from "./meta.js";
 
 const postCont = document.querySelector(".spcfc_post_cont");
 const cmmntsCont = document.querySelector(".cmmnts_cont");
@@ -109,23 +110,7 @@ async function postApi() {
       ".wp-block-group__inner-container"
     ).innerHTML;
 
-    document.querySelector(".hide_section").className = "cmmnts_sctn";
-    document.title = "My Devotion" + "|" + verseHead + "|" + userName;
-    document
-      .querySelector("meta[property='og:url']")
-      .setAttribute("content", link);
-    document
-      .querySelector("meta[property='og:title']")
-      .setAttribute("content", document.title);
-    document
-      .querySelector("meta[property='og:description']")
-      .setAttribute("content", verse);
-    document
-      .querySelector("meta[property='og:image']")
-      .setAttribute("content", feat);
-    document
-      .querySelector("meta[property='og:image:secure_url']")
-      .setAttribute("content", feat);
+    metaTags(verseHead, userName, link, verse, feat);
 
     postCont.innerHTML += `<div class="blg_spcfc_pst">
                             <div class= "feat_cont">

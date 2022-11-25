@@ -2,6 +2,7 @@ import { message } from "./message/message.js";
 import { getUser } from "./home/modal.js";
 
 const blogPost = document.querySelector(".blg_post_cont");
+const totalResult = document.querySelector(".total_result");
 const showMore = document.querySelector(".show_more");
 const searchCont = document.querySelector(".search_cont");
 const hideAll = document.querySelector(".hide_all");
@@ -25,6 +26,7 @@ const params = new URLSearchParams(queryString);
 const search = params.get("search");
 
 // console.log(search);
+let callOnce = false;
 
 async function apiCall() {
   try {
@@ -176,7 +178,6 @@ function hiddenFilteredPost() {
 
 function filteringPost() {
   const filteredPost = document.querySelectorAll(".filtered");
-  // console.log(filteredPost.length);
   if (filteredPost.length === 0) {
     searchCont.style.display = "flex";
     showMore.style.display = "none";
@@ -197,6 +198,9 @@ function filteringPost() {
       hiddenPost();
     }
   }
+  if (!callOnce) {
+    countResult(filteredPost);
+  }
 }
 
 function hiddenPost() {
@@ -211,6 +215,7 @@ function hiddenPost() {
     document.querySelector(".hideBtn").className = "show_more";
     y = 0;
     if (search) {
+      callOnce = true;
       hiddenFilteredPost();
     } else {
       hidePost();
@@ -245,4 +250,11 @@ function hiddenPost() {
       }
     }
   }
+}
+
+function countResult(filteredPost) {
+  console.log("working");
+  const hiddenBlog = document.querySelectorAll(".blg_hide");
+  const totalSearchResult = hiddenBlog.length + filteredPost.length;
+  totalResult.innerHTML = `<h3>Total result for "${search}" = ${totalSearchResult}</h3>`;
 }

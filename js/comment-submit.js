@@ -59,14 +59,7 @@ function validateComment(event) {
     };
     //console.log(url);
     //console.log(formData);
-    postData(url, formData).then((data) => {
-      //console.log(data);
-      submitButton.style.display = "none";
-      loader.style.display = "flex";
-      setTimeout(function () {
-        location.reload(true);
-      }, 5000);
-    });
+    postData(url, formData);
   }
 }
 commentForm.addEventListener("submit", validateComment);
@@ -97,6 +90,13 @@ async function postData(url, data) {
     redirect: "follow",
     referrerPolicy: "no-referrer",
     body: JSON.stringify(data),
+  }).then((data) => {
+    // console.log(data);
+    submitButton.style.display = "none";
+    loader.style.display = "flex";
+    setTimeout(function () {
+      location.reload(true);
+    }, 5000);
   });
   return response.json();
 }

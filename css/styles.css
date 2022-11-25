@@ -381,6 +381,9 @@ to {opacity: 1}
     background-color: var(--light-blue);
     box-shadow: 4px 4px 20px var(--light-blue);
 }
+.total_result{
+    text-align: center;
+}
 
 .blg_mn_cntnr{
     display: flex;
@@ -947,6 +950,9 @@ footer p{
     }
     .featured_image img {
         width: 67vw;
+    }
+    .publish_date, .date_date{
+        font-size: 10px;
     }
 }
 
