@@ -1,6 +1,5 @@
 import { message } from "./message/message.js";
 import { getUser } from "./home/modal.js";
-import { metaTags } from "./meta.js";
 
 const postCont = document.querySelector(".spcfc_post_cont");
 const cmmntsCont = document.querySelector(".cmmnts_cont");
@@ -49,8 +48,154 @@ const url1 = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts/" + id;
 
 const url2 =
   "https://tonix.site/daily-devotion/wp-json/wp/v2/comments?post=" + id;
-
 // console.log(url2);
+
+async function postApi() {
+  try {
+    const postApi = await fetch(url1);
+    const result = await postApi.json();
+    console.log(result);
+
+    const featImgLink = result._links["wp:featuredmedia"][0].href;
+    console.log(featImgLink);
+    const featImgApi = await fetch(featImgLink);
+    const featImgResult = await featImgApi.json();
+    console.log(featImgResult.source_url);
+
+    const authorLink = result._links.author[0].href;
+    const authorApi = await fetch(authorLink);
+    const authorResult = await authorApi.json();
+    console.log(authorResult);
+
+    const content = new DOMParser().parseFromString(
+      result.content.rendered,
+      "text/html"
+    ).body.childNodes;
+    console.log(content);
+
+    const userPic = authorResult.avatar_urls[96];
+    const userName = authorResult.name;
+    console.log(result.title.rendered);
+
+    console.log(content[0].innerHTML);
+
+    console.log(content[2].innerHTML);
+
+    const parag = result.content.rendered;
+
+    // postCont.innerHTML = `<div class="hide">${result.content.rendered}</div>`;
+
+    // const pic = document.querySelector(".wp-block-post-author__avatar img").src;
+    // //console.log(pic);
+    // const feat = document.querySelector(
+    //   ".wp-block-post-featured-image img"
+    // ).src;
+    // //console.log(feat);
+    // const userName = document.querySelector(
+    //   ".wp-block-post-author__name"
+    // ).innerHTML;
+    let newDate = result.date;
+    newDate = new Date(newDate).toUTCString();
+    newDate = newDate.split(" ").slice(0, 4).join(".");
+    // const verse = document.querySelector(".wp-block-quote cite").innerHTML;
+    // //console.log(verse);
+    // const verseHead = document.querySelector(".wp-block-quote h2").innerHTML;
+    // //console.log(verseHead);
+    // const parag = document.querySelector(
+    //   ".wp-block-group__inner-container"
+    // ).innerHTML;
+
+    document.querySelector(".hide_section").className = "cmmnts_sctn";
+
+    document.title =
+      "My Devotion" + "|" + content[0].innerHTML + "|" + userName;
+    // document
+    //   .querySelector("meta[property='og:url']")
+    //   .setAttribute("content", link);
+    // document
+    //   .querySelector("meta[property='og:title']")
+    //   .setAttribute("content", document.title);
+    // document
+    //   .querySelector("meta[property='og:description']")
+    //   .setAttribute("content", verse);
+    // document
+    //   .querySelector("meta[property='og:image']")
+    //   .setAttribute("content", feat);
+    // document
+    //   .querySelector("meta[property='og:image:secure_url']")
+    //   .setAttribute("content", feat);
+
+    postCont.innerHTML = `<div class="blg_spcfc_pst">
+                            <div class= "feat_cont">
+                            <button class="feat_img"><label><img src="${featImgResult.source_url}"></label></button>
+                            </div>
+                            <div class="auth_date">
+                              <button class="usr_prfl_pc" value="${result.author}"><label><img src="${userPic}"></label></button>
+                                <div>
+                                    <h4>${userName}</h4>
+                                    <div class="date">
+                                        <p class="publish_date">Published Date :</p> <p class="date_date"> ${newDate}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div>
+                                <h1>${result.title.rendered}</h1>
+                            </div>
+                            <div class="bible">
+                                <p class="verse">${content[2].innerHTML}</p>
+                                <h2>- ${content[0].innerHTML}</h2>
+                            </div>
+                            <div class="parag">
+                                ${parag}
+                            </div>
+                    </div>`;
+
+    document.querySelector(".parag h2").remove();
+    document.querySelector(".parag pre").remove();
+
+    const featImg = document.querySelector(".feat_img");
+
+    featImg.onclick = function () {
+      //console.log(featImg);
+      // console.log(modalPost);
+      modalCont.style.display = "flex";
+      modalPost.innerHTML = `<div class="featured_image"><img src="${featImgResult.source_url}"> </div>`;
+      close.onclick = function () {
+        modalCont.style.display = "none";
+      };
+    };
+
+    const usrPc = document.querySelector(".usr_prfl_pc");
+    // console.log(usrPc);
+    usrPc.onclick = function () {
+      const url3 =
+        "https://tonix.site/daily-devotion/wp-json/wp/v2/users/" + usrPc.value;
+      //console.log(url3);
+      userInfo(url3);
+    };
+  } catch (error) {
+    console.log(error);
+    postCont.innerHTML = message("error", error);
+  }
+}
+
+postApi();
+
+async function userInfo(url3) {
+  try {
+    const userData = await fetch(url3);
+    const userResult = await userData.json();
+    //console.log(userResult);
+
+    modalCont.style.display = "flex";
+
+    getUser(userResult, modalCont, modalPost, close);
+  } catch (error) {
+    console.log(error);
+    latestPost.innerHTML = message("error", error);
+  }
+}
 
 async function commentApi() {
   try {
@@ -81,100 +226,3 @@ async function commentApi() {
 }
 
 commentApi();
-
-async function postApi() {
-  try {
-    const post = await fetch(url1);
-    const result = await post.json();
-    //console.log(result);
-
-    postCont.innerHTML = `<div class="hide">${result.content.rendered}</div>`;
-
-    const pic = document.querySelector(".wp-block-post-author__avatar img").src;
-    //console.log(pic);
-    const feat = document.querySelector(
-      ".wp-block-post-featured-image img"
-    ).src;
-    //console.log(feat);
-    const userName = document.querySelector(
-      ".wp-block-post-author__name"
-    ).innerHTML;
-    let newDate = result.date;
-    newDate = new Date(newDate).toUTCString();
-    newDate = newDate.split(" ").slice(0, 4).join(".");
-    const verse = document.querySelector(".wp-block-quote cite").innerHTML;
-    //console.log(verse);
-    const verseHead = document.querySelector(".wp-block-quote h2").innerHTML;
-    //console.log(verseHead);
-    const parag = document.querySelector(
-      ".wp-block-group__inner-container"
-    ).innerHTML;
-
-    metaTags(verseHead, userName, link, verse, feat);
-
-    postCont.innerHTML += `<div class="blg_spcfc_pst">
-                            <div class= "feat_cont">
-                            <button class="feat_img"><label><img src="${feat}"></label></button>
-                            </div>
-                            <div class="auth_date">
-                              <button class="usr_prfl_pc" value="${result.author}"><label><img src="${pic}"></label></button>
-                                <div>
-                                    <h4>${userName}</h4>
-                                    <div class="date">
-                                        <p class="publish_date">Published Date :</p> <p class="date_date"> ${newDate}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <div>
-                                <h1>${result.title.rendered}</h1>
-                            </div>
-                            <div class="bible">
-                                <p class="verse">${verse}</p>
-                                <h2>- ${verseHead}</h2>
-                            </div>
-                            <div class="parag">
-                                ${parag}
-                            </div>
-                    </div>`;
-    const featImg = document.querySelector(".feat_img");
-    featImg.onclick = function () {
-      //console.log(featImg);
-      // console.log(modalPost);
-      modalCont.style.display = "flex";
-      modalPost.innerHTML = `<div class="featured_image"><img src="${feat}"> </div>`;
-      close.onclick = function () {
-        modalCont.style.display = "none";
-      };
-    };
-
-    const usrPc = document.querySelector(".usr_prfl_pc");
-    // console.log(usrPc);
-    usrPc.onclick = function () {
-      const url3 =
-        "https://tonix.site/daily-devotion/wp-json/wp/v2/users/" + usrPc.value;
-      //console.log(url3);
-      userInfo(url3);
-    };
-  } catch (error) {
-    //console.log(error);
-    postCont.innerHTML = message("error", error);
-  }
-}
-
-postApi();
-
-async function userInfo(url3) {
-  try {
-    const userData = await fetch(url3);
-    const userResult = await userData.json();
-    //console.log(userResult);
-
-    modalCont.style.display = "flex";
-
-    getUser(userResult, modalCont, modalPost, close);
-  } catch (error) {
-    console.log(error);
-    latestPost.innerHTML = message("error", error);
-  }
-}

@@ -290,24 +290,8 @@ to {opacity: 1}
 
 /*------------------- Modal ------------------------------*/
 
-/* #modal, #spcfc_modal, #abt_modal{
-    display: flex;
-    position: fixed;
-    flex-direction: row-reverse; */
-    /* justify-content: space-evenly; */
-    /* gap: 30px; */
-    /* width: 80%;
-    height: 800px; */
-    /* height: fit-content; */
-    /* backdrop-filter: blur(15px);
-    z-index: 5; */
-/* }
-#spcfc_modal, #abt_modal{
-    position: absolute;
-    width: 95%;
-} */
 #modal, #spcfc_modal, #abt_modal{
-    display: flex;
+    display: none;
     flex-direction: row-reverse;
     flex-direction: column;
     position: absolute;
@@ -880,7 +864,7 @@ footer p{
         margin-right: 12%;
     }
     .spcfc_mn_div{
-        margin: 5%;
+        margin: 10%;
     }
     #modal{
         margin-top: 20%;
@@ -953,6 +937,9 @@ footer p{
     }
     .publish_date, .date_date{
         font-size: 10px;
+    }
+    .mn_div {
+        padding: 0 4%;
     }
 }
 

@@ -26,30 +26,39 @@ function searchForm(event) {
 srchForm.addEventListener("submit", searchForm);
 
 const latestPost = document.querySelector(".post_cont");
-const url1 = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts";
+const url1 = "https://tonix.site/daily-devotion/wp-json/wp/v2/posts?per_page=6";
 // console.log(url1);
 
 async function apiCall() {
   try {
-    const post = await fetch(url1);
-    const result = await post.json();
+    const postApi = await fetch(url1);
+    const result = await postApi.json();
 
     // console.log(result);
     latestPost.innerHTML = "";
     for (let i = 0; i < result.length; i++) {
       const post = result[i];
-      //console.log(post.author);
-      const content = post.content.rendered;
-      //console.log(content);
-      const pic = post._links.author[0].href;
-      if (i <= 5) {
-        // console.log(pic);
-        latestPost.innerHTML = `<div class="hide">${content}</div>`;
-        gravatarApi(pic, post);
-      }
+      console.log(post);
+
+      const content = new DOMParser().parseFromString(
+        post.content.rendered,
+        "text/html"
+      ).body.childNodes;
+      console.log(content);
+
+      const authorLink = post._links.author[0].href;
+      // console.log(authorLink);
+
+      getPost(content, post, authorLink);
+
+      // if (i <= 5) {
+      //   // console.log(pic);
+      //   latestPost.innerHTML = `<div class="hide">${content}</div>`;
+      //   gravatarApi(authorPic, post);
+      // }
     }
   } catch (error) {
-    //console.log(error);
+    console.log(error);
     latestPost.innerHTML = message("error", error);
   }
 }
@@ -58,22 +67,22 @@ apiCall();
 
 mql.addEventListener("change", changeScreen, false);
 
-async function gravatarApi(pic, post) {
+async function getPost(content, post, authorLink) {
   try {
-    const verse = document.querySelector(".wp-block-quote cite").innerHTML;
-    // console.log(verse);
-    const verseHead = document.querySelector(".wp-block-quote h2").innerHTML;
-    // console.log(verseHead);
-    // console.log(post.author);
-    const userGravatar = await fetch(pic);
-    const gravatarResult = await userGravatar.json();
+    const author = await fetch(authorLink);
+    const authorResult = await author.json();
 
-    // console.log(gravatarResult);
-    const userName = gravatarResult.name;
-    // console.log(userName);
+    const userName = authorResult.name;
+    console.log(userName);
 
-    const userProfile = gravatarResult.avatar_urls[96];
-    // console.log(userProfile);
+    const userPic = authorResult.avatar_urls[96];
+    console.log(userPic);
+
+    console.log(post.title.rendered);
+
+    console.log(content[0].innerHTML);
+
+    console.log(content[2].innerHTML);
 
     let newDate = post.date;
     newDate = new Date(newDate).toUTCString();
@@ -81,13 +90,13 @@ async function gravatarApi(pic, post) {
 
     latestPost.innerHTML += `<div class="ndx_mn_pst_cntnr fade">
                           <div class="pst_hd">
-                            <button class="usr_prfl_pc" value="${post.author}"><label><img src="${userProfile}"></label></button>
+                            <button class="usr_prfl_pc" value="${post.author}"><label><img src="${userPic}"></label></button>
                             <h4>${userName}</h4>
                             <h1>${post.title.rendered}</h1>
                           </div>
                           <div class="bible">
-                            <p class="verse">${verse}</p>
-                            <h2>- ${verseHead}</h2>
+                            <p class="verse">${content[2].innerHTML}</p>
+                            <h2>- ${content[0].innerHTML}</h2>
                           </div>
                           <div class="pst_cta">
                             <a href="blogspecific.html?id=${post.id}" class="rd_nw_cta">Read Now</a>
@@ -111,6 +120,60 @@ async function gravatarApi(pic, post) {
     latestPost.innerHTML = message("error", error);
   }
 }
+
+// async function gravatarApi(authorPic, post) {
+//   try {
+//     const verse = document.querySelector(".wp-block-quote cite").innerHTML;
+//     // console.log(verse);
+//     const verseHead = document.querySelector(".wp-block-quote h2").innerHTML;
+//     // console.log(verseHead);
+//     // console.log(post.author);
+//     // const userGravatar = await fetch(pic);
+//     // const gravatarResult = await userGravatar.json();
+
+//     // console.log(gravatarResult);
+//     // const userName = gravatarResult.name;
+//     // console.log(userName);
+
+//     // const userProfile = gravatarResult.avatar_urls[96];
+//     // console.log(userProfile);
+
+//     let newDate = post.date;
+//     newDate = new Date(newDate).toUTCString();
+//     newDate = newDate.split(" ").slice(0, 4).join(".");
+
+//     latestPost.innerHTML += `<div class="ndx_mn_pst_cntnr fade">
+//                           <div class="pst_hd">
+//                             <button class="usr_prfl_pc" value="${post.author}"><label><img src="${authorPic}"></label></button>
+
+//                             <h1>${post.title.rendered}</h1>
+//                           </div>
+//                           <div class="bible">
+//                             <p class="verse">${verse}</p>
+//                             <h2>- ${verseHead}</h2>
+//                           </div>
+//                           <div class="pst_cta">
+//                             <a href="blogspecific.html?id=${post.id}" class="rd_nw_cta">Read Now</a>
+//                             <div class="date"><p class="publish_date">Published Date :</p> <p class="date_date"> ${newDate}</p></div>
+//                           </div>
+//               </div>`;
+//     const usrPc = document.querySelectorAll(".usr_prfl_pc");
+//     //console.log(usrPc);
+//     usrPc.forEach((userX) => {
+//       userX.onclick = function () {
+//         const userId = userX.value;
+//         const url2 =
+//           "https://tonix.site/daily-devotion/wp-json/wp/v2/users/" + userId;
+//         //console.log(url2);
+//         userInfo(url2);
+//       };
+//     });
+//     screenSize(screenWidth);
+//   } catch (error) {
+//     // console.log(error);
+//     latestPost.innerHTML = message("error", error);
+//   }
+// }
 
 async function userInfo(url2) {
   try {
