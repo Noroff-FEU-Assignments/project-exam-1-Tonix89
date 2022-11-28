@@ -1,19 +1,10 @@
 export function screenSize(screenWidth) {
-  const hide = document.querySelectorAll(".ndx_mn_pst_cntnr");
-  //console.log(hide.length);
-  const slideLeft = document.querySelector(".sld_lf_cn");
-  //console.log(slideLeft);
-  const slideRight = document.querySelector(".sld_rght_cn");
-  //console.log(slideRight);
-  let y = 0;
-  let z = 1;
-
-  //console.log(screenWidth);
-
   if (screenWidth >= 600) {
     largeScreen();
-  } else {
+  } else if (screenWidth >= 450 && screenWidth <= 599) {
     smallScreen();
+  } else {
+    mobileScreen();
   }
 }
 
@@ -122,6 +113,71 @@ function smallScreen() {
     } else {
       slideLeft.style.display = "block";
     }
+    for (let i = 0; i < hide.length; i++) {
+      hide[i].style.display = "none";
+      if (i === y) {
+        hide[i].style.display = "grid";
+      }
+    }
+  }
+}
+
+function mobileScreen() {
+  const hide = document.querySelectorAll(".ndx_mn_pst_cntnr");
+  //console.log(hide.length);
+  document.querySelector(".sld_lf_cn").style.display = "none";
+  document.querySelector(".sld_rght_cn").style.display = "none";
+  let y = 0;
+
+  const indexMain = document.querySelectorAll(".ndx_mn_pst_cntnr");
+  for (let i = 0; i < indexMain.length; i++) {
+    indexMain[i].addEventListener("touchstart", (e) => {
+      const startTouchScreenX = e.changedTouches[0].screenX;
+      const startTouchScreenY = e.changedTouches[0].screenY;
+      // console.log(startTouchScreenX);
+      // console.log(startTouchScreenY);
+      // console.log(e);
+
+      indexMain[i].addEventListener("touchend", (e) => {
+        const stopTouchScreenX = e.changedTouches[0].screenX;
+        const stopTouchScreenY = e.changedTouches[0].screenY;
+        // console.log(stopTouchScreenX);
+        // console.log(stopTouchScreenY);
+        // console.log(e);
+
+        const swipeXLenght = startTouchScreenX - stopTouchScreenX;
+        // console.log(swipeXLenght);
+
+        const swipeYLenght = startTouchScreenY - stopTouchScreenY;
+        // console.log(swipeYLenght);
+        if (swipeXLenght >= 130 && swipeYLenght <= 50 && swipeYLenght >= -50) {
+          show((y += 1));
+        }
+        if (swipeXLenght <= -130 && swipeYLenght <= 50 && swipeYLenght >= -50) {
+          show((y -= 1));
+        }
+      });
+    });
+  }
+
+  for (let i = 0; i < hide.length; i++) {
+    hide[i].style.display = "none";
+    if (i === y) {
+      hide[i].style.display = "grid";
+    }
+  }
+
+  function show(x) {
+    // console.log(x);
+    // console.log(hide.length);
+    if (x === hide.length) {
+      y = hide.length - 1;
+      // console.log(y);
+    }
+    if (x < 0) {
+      y = 0;
+    }
+    // console.log(y);
     for (let i = 0; i < hide.length; i++) {
       hide[i].style.display = "none";
       if (i === y) {

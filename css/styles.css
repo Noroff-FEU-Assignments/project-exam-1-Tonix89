@@ -142,7 +142,36 @@ header li a{
     display: none;
     width: 35px;
 }
-
+.l_screen .profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    right: 10px;
+    top: 20px;
+}
+.s_screen .profile{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+.profile h3{
+    margin: 0px;
+    font: bold italic 14px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.profile button{
+    border: none;
+    cursor: pointer;
+   background-color: transparent;
+}
+.profile img{
+    max-width: 30px;
+    max-height: 30px;
+    border-radius: 50%;
+ }
+.s_screen{
+    display: none;
+}
 /** -------------------- Main -------------------**/
 .ndx_mn, .contact, .fdbck_mn,.about{
     height: 100vh;
@@ -218,6 +247,7 @@ to {opacity: 1}
 
 .sld_lf_cn img, .sld_rght_cn img{
     width: 20px;
+    cursor: pointer;
 }
 
 .hide , .blg_hide, .hideBtn, .blg_filtered_hide{
@@ -423,6 +453,7 @@ hr{
 }
 .show_more img, .hide_all img{
     width: 20px;
+    cursor: pointer;
 }
 
 .show_more:hover,  .hide_all:hover{
@@ -776,6 +807,13 @@ margin: 40px;
     font: normal 16px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/**-------------------Add Post Page ------------**/
+
+.blg_mn_cntnr h3 a{
+    font: bold 22px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--light-blue);
+}
+
 /** ------------------- Footer ------------------**/
 
 footer{
@@ -807,6 +845,7 @@ footer{
 }
 #subscribe_form button{
     background-color: var(----skyblue);
+    cursor: pointer;
 }
 h6{
     font-size: 12px;
@@ -858,6 +897,12 @@ footer p{
         place-items: flex-end;
         box-shadow: -7px 6px 7px #f9e6e4;
         z-index: 2;
+    }
+    .l_screen{
+        display: none;
+    }
+    .s_screen{
+        display: flex;
     }
     .hdr_nav li a{
         font-size: 17px;;

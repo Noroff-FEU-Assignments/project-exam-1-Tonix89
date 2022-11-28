@@ -3,7 +3,6 @@ import { changeScreen } from "./home/changescreen.js";
 import { screenSize } from "./home/screen-size.js";
 import { getUser } from "./home/modal.js";
 import { subscribe } from "./subscription/subscribe.js";
-
 subscribe();
 
 const screenWidth = window.innerWidth;
