@@ -20,10 +20,8 @@ const id = params.get("id");
 
 // console.log(id);
 
-const fbShare = document.querySelector(".fblink");
 const link = window.location.href;
-fbShare.innerHTML = `
-<div class="fb-share-button" data-href="${link}" data-layout="button_count" data-size="large" data-lazy="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=${link}%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>`;
+// href="https://www.facebook.com/sharer/sharer.php?u=${link}
 // fbShare.innerHTML = `<div class="fb-share-button"
 // data-href="${link}"
 // data-layout="button_count">
@@ -54,34 +52,35 @@ async function postApi() {
   try {
     const postApi = await fetch(url1);
     const result = await postApi.json();
-    console.log(result);
+    // console.log(result);
 
     const featImgLink = result._links["wp:featuredmedia"][0].href;
-    console.log(featImgLink);
+    // console.log(featImgLink);
     const featImgApi = await fetch(featImgLink);
     const featImgResult = await featImgApi.json();
-    console.log(featImgResult.source_url);
+    // console.log(featImgResult.source_url);
 
     const authorLink = result._links.author[0].href;
     const authorApi = await fetch(authorLink);
     const authorResult = await authorApi.json();
-    console.log(authorResult);
+    // console.log(authorResult);
 
     const content = new DOMParser().parseFromString(
       result.content.rendered,
       "text/html"
     ).body.childNodes;
-    console.log(content);
+    // console.log(content);
 
     const userPic = authorResult.avatar_urls[96];
     const userName = authorResult.name;
-    console.log(result.title.rendered);
+    // console.log(result.title.rendered);
 
-    console.log(content[0].innerHTML);
+    // console.log(content[0].innerHTML);
 
-    console.log(content[2].innerHTML);
+    // console.log(content[2].innerHTML);
 
     const parag = result.content.rendered;
+    console.log(parag);
 
     let newDate = result.date;
     newDate = new Date(newDate).toUTCString();
@@ -132,6 +131,9 @@ async function postApi() {
 
     document.querySelector(".parag h2").remove();
     document.querySelector(".parag pre").remove();
+    const fbShare = document.querySelector(".fblink");
+    fbShare.innerHTML = `
+<div class="fb-share-button" data-href="${link}" data-layout="button_count" data-size="large" data-lazy="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?caption=${document.title}&description=${content[2].innerHTML}&u=${link}&picture=${featImgResult.source_url}%2AF&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>`;
 
     const featImg = document.querySelector(".feat_img");
 
@@ -154,7 +156,7 @@ async function postApi() {
       userInfo(url3);
     };
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     postCont.innerHTML = message("error", error);
   }
 }
