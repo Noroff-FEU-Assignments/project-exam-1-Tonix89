@@ -1,3 +1,7 @@
+import { subscribe } from "./subscription/subscribe.js";
+
+subscribe();
+
 const formContainer = document.querySelector(".cntct_mn_cntnr");
 const form = document.querySelector("#cntct_form");
 const fullname = document.querySelector("#fullname");

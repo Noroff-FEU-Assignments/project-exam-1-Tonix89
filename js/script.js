@@ -2,6 +2,9 @@ import { message } from "./message/message.js";
 import { changeScreen } from "./home/changescreen.js";
 import { screenSize } from "./home/screen-size.js";
 import { getUser } from "./home/modal.js";
+import { subscribe } from "./subscription/subscribe.js";
+
+subscribe();
 
 const screenWidth = window.innerWidth;
 const mql = window.matchMedia("(max-width: 600px)");
@@ -38,27 +41,21 @@ async function apiCall() {
     latestPost.innerHTML = "";
     for (let i = 0; i < result.length; i++) {
       const post = result[i];
-      console.log(post);
+      // console.log(post);
 
       const content = new DOMParser().parseFromString(
         post.content.rendered,
         "text/html"
       ).body.childNodes;
-      console.log(content);
+      // console.log(content);
 
       const authorLink = post._links.author[0].href;
       // console.log(authorLink);
 
       getPost(content, post, authorLink);
-
-      // if (i <= 5) {
-      //   // console.log(pic);
-      //   latestPost.innerHTML = `<div class="hide">${content}</div>`;
-      //   gravatarApi(authorPic, post);
-      // }
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     latestPost.innerHTML = message("error", error);
   }
 }
@@ -73,16 +70,16 @@ async function getPost(content, post, authorLink) {
     const authorResult = await author.json();
 
     const userName = authorResult.name;
-    console.log(userName);
+    // console.log(userName);
 
     const userPic = authorResult.avatar_urls[96];
-    console.log(userPic);
+    // console.log(userPic);
 
-    console.log(post.title.rendered);
+    // console.log(post.title.rendered);
 
-    console.log(content[0].innerHTML);
+    // console.log(content[0].innerHTML);
 
-    console.log(content[2].innerHTML);
+    // console.log(content[2].innerHTML);
 
     let newDate = post.date;
     newDate = new Date(newDate).toUTCString();

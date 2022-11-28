@@ -1,5 +1,8 @@
 import { message } from "./message/message.js";
 import { getUser } from "./home/modal.js";
+import { subscribe } from "./subscription/subscribe.js";
+
+subscribe();
 
 const blogPost = document.querySelector(".blg_post_cont");
 const totalResult = document.querySelector(".total_result");

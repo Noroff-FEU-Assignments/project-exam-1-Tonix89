@@ -1,3 +1,7 @@
+import { subscribe } from "./subscription/subscribe.js";
+
+subscribe();
+
 const form = document.querySelector("#feedback_form");
 const message = document.getElementById("message");
 const messageError = document.getElementById("messageError");

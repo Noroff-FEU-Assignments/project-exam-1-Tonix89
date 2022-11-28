@@ -1,5 +1,8 @@
 import { message } from "./message/message.js";
 import { getUser } from "./home/modal.js";
+import { subscribe } from "./subscription/subscribe.js";
+
+subscribe();
 
 const postCont = document.querySelector(".spcfc_post_cont");
 const cmmntsCont = document.querySelector(".cmmnts_cont");
@@ -89,20 +92,7 @@ async function postApi() {
 
     document.querySelector(".hide_section").className = "cmmnts_sctn";
 
-    document.title =
-      "My Devotion" + "|" + content[0].innerHTML + "|" + userName;
-    document
-      .querySelector("meta[property='og:url']")
-      .setAttribute("content", link);
-    document
-      .querySelector("meta[property='og:title']")
-      .setAttribute("content", document.title);
-    document
-      .querySelector("meta[property='og:description']")
-      .setAttribute("content", content[2].innerHTML);
-    document
-      .querySelector("meta[property='og:image']")
-      .setAttribute("content", featImgResult.source_url);
+    metaUpdate(content, featImgResult, userName);
 
     postCont.innerHTML = `<div class="blg_spcfc_pst">
                             <div class= "feat_cont">
@@ -205,3 +195,19 @@ async function commentApi() {
 }
 
 commentApi();
+
+function metaUpdate(content, featImgResult, userName) {
+  document.title = "My Devotion" + "|" + content[0].innerHTML + "|" + userName;
+  document
+    .querySelector("meta[property='og:url']")
+    .setAttribute("content", link);
+  document
+    .querySelector("meta[property='og:title']")
+    .setAttribute("content", document.title);
+  document
+    .querySelector("meta[property='og:description']")
+    .setAttribute("content", content[2].innerHTML);
+  document
+    .querySelector("meta[property='og:image']")
+    .setAttribute("content", featImgResult.source_url);
+}

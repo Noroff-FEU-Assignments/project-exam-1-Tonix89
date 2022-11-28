@@ -1,3 +1,7 @@
+import { subscribe } from "./subscription/subscribe.js";
+
+subscribe();
+
 const modalCont = document.getElementById("abt_modal");
 const modalPost = document.querySelector(".modal_post");
 const close = document.querySelector(".close");

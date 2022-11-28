@@ -577,7 +577,7 @@ hr{
     font: bold 14px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
     gap: 2px;
 }
-.required input{
+.required input, #subscribe_form button{
     font: bold 14px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
     max-width: 345px;
     border: 1px solid var(--light-pink);
@@ -783,8 +783,31 @@ footer{
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin-top:  20px;
 }
-
+.subs_thanks{
+    display: none;
+}
+.foot_cont{
+    margin-top: 20px;
+}
+#subscribe_form{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+.foot_cont h4{
+    font: bolder 16px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+}
+#subscribe_form .required{
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+   gap: 0px;
+}
+#subscribe_form button{
+    background-color: var(----skyblue);
+}
 h6{
     font-size: 12px;
     margin-bottom: 5px;
@@ -792,8 +815,9 @@ h6{
 .scl_md{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    gap: 10px;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px
 }
 .scl_md img{
  width: 28px;
@@ -941,6 +965,9 @@ footer p{
     .mn_div {
         padding: 0 4%;
     }
+    #subscribe_form .required input{
+        max-width: 150px;
+    }
 }
 
 @media screen and (max-width: 360px){
@@ -1016,5 +1043,11 @@ footer p{
     .featured_image img {
         width: 58vw;
         height: 72vh;
+    }
+    #subscribe_form .required input{
+        max-width: 100px;
+    }
+    #subscribe_form button{
+        font-size: 10px;
     }
 }
