@@ -83,47 +83,26 @@ async function postApi() {
 
     const parag = result.content.rendered;
 
-    // postCont.innerHTML = `<div class="hide">${result.content.rendered}</div>`;
-
-    // const pic = document.querySelector(".wp-block-post-author__avatar img").src;
-    // //console.log(pic);
-    // const feat = document.querySelector(
-    //   ".wp-block-post-featured-image img"
-    // ).src;
-    // //console.log(feat);
-    // const userName = document.querySelector(
-    //   ".wp-block-post-author__name"
-    // ).innerHTML;
     let newDate = result.date;
     newDate = new Date(newDate).toUTCString();
     newDate = newDate.split(" ").slice(0, 4).join(".");
-    // const verse = document.querySelector(".wp-block-quote cite").innerHTML;
-    // //console.log(verse);
-    // const verseHead = document.querySelector(".wp-block-quote h2").innerHTML;
-    // //console.log(verseHead);
-    // const parag = document.querySelector(
-    //   ".wp-block-group__inner-container"
-    // ).innerHTML;
 
     document.querySelector(".hide_section").className = "cmmnts_sctn";
 
     document.title =
       "My Devotion" + "|" + content[0].innerHTML + "|" + userName;
-    // document
-    //   .querySelector("meta[property='og:url']")
-    //   .setAttribute("content", link);
-    // document
-    //   .querySelector("meta[property='og:title']")
-    //   .setAttribute("content", document.title);
-    // document
-    //   .querySelector("meta[property='og:description']")
-    //   .setAttribute("content", verse);
-    // document
-    //   .querySelector("meta[property='og:image']")
-    //   .setAttribute("content", feat);
-    // document
-    //   .querySelector("meta[property='og:image:secure_url']")
-    //   .setAttribute("content", feat);
+    document
+      .querySelector("meta[property='og:url']")
+      .setAttribute("content", link);
+    document
+      .querySelector("meta[property='og:title']")
+      .setAttribute("content", document.title);
+    document
+      .querySelector("meta[property='og:description']")
+      .setAttribute("content", content[2].innerHTML);
+    document
+      .querySelector("meta[property='og:image']")
+      .setAttribute("content", featImgResult.source_url);
 
     postCont.innerHTML = `<div class="blg_spcfc_pst">
                             <div class= "feat_cont">
@@ -175,7 +154,7 @@ async function postApi() {
       userInfo(url3);
     };
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     postCont.innerHTML = message("error", error);
   }
 }
@@ -192,7 +171,7 @@ async function userInfo(url3) {
 
     getUser(userResult, modalCont, modalPost, close);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     latestPost.innerHTML = message("error", error);
   }
 }
@@ -220,7 +199,7 @@ async function commentApi() {
       }
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     postCont.innerHTML = message("error", error);
   }
 }
