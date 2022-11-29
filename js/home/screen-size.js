@@ -131,6 +131,7 @@ function mobileScreen() {
   const indexMain = document.querySelectorAll(".ndx_mn_pst_cntnr");
   for (let i = 0; i < indexMain.length; i++) {
     indexMain[i].addEventListener("touchstart", (e) => {
+      e.preventDefault();
       const startTouchScreenX = e.changedTouches[0].screenX;
       const startTouchScreenY = e.changedTouches[0].screenY;
       console.log(startTouchScreenX);
@@ -138,6 +139,7 @@ function mobileScreen() {
       // console.log(e);
 
       indexMain[i].addEventListener("touchend", (e) => {
+        e.preventDefault();
         const stopTouchScreenX = e.changedTouches[0].screenX;
         const stopTouchScreenY = e.changedTouches[0].screenY;
         console.log(stopTouchScreenX);
