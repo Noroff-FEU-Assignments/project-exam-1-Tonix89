@@ -133,14 +133,14 @@ function mobileScreen() {
     indexMain[i].addEventListener("touchstart", (e) => {
       const startTouchScreenX = e.changedTouches[0].screenX;
       const startTouchScreenY = e.changedTouches[0].screenY;
-      // console.log(startTouchScreenX);
+      console.log(startTouchScreenX);
       // console.log(startTouchScreenY);
       // console.log(e);
 
       indexMain[i].addEventListener("touchend", (e) => {
         const stopTouchScreenX = e.changedTouches[0].screenX;
         const stopTouchScreenY = e.changedTouches[0].screenY;
-        // console.log(stopTouchScreenX);
+        console.log(stopTouchScreenX);
         // console.log(stopTouchScreenY);
         // console.log(e);
         if (startTouchScreenX >= 800 && stopTouchScreenX <= 700) {
