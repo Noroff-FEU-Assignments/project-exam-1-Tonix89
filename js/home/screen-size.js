@@ -1,10 +1,10 @@
 export function screenSize(screenWidth) {
   if (screenWidth >= 600) {
     largeScreen();
-  } else if (screenWidth >= 450 && screenWidth <= 599) {
-    smallScreen();
+    //} else if (screenWidth >= 450 && screenWidth <= 599) {
+    // smallScreen();
   } else {
-    mobileScreen();
+    smallScreen();
   }
 }
 
