@@ -629,6 +629,7 @@ hr{
     border: 1px solid var(--light-pink);
     box-shadow: 0px 0px 12px var(----skyblue);
     background-color: var(----skyblue);
+    cursor: pointer;
 }
 #comments{
     border: 2px solid var(--light-pink);

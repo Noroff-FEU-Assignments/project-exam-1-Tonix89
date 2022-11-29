@@ -128,7 +128,6 @@ function mobileScreen() {
   document.querySelector(".sld_lf_cn").style.display = "none";
   document.querySelector(".sld_rght_cn").style.display = "none";
   let y = 0;
-
   const indexMain = document.querySelectorAll(".ndx_mn_pst_cntnr");
   for (let i = 0; i < indexMain.length; i++) {
     indexMain[i].addEventListener("touchstart", (e) => {
@@ -144,18 +143,26 @@ function mobileScreen() {
         // console.log(stopTouchScreenX);
         // console.log(stopTouchScreenY);
         // console.log(e);
-
-        const swipeXLenght = startTouchScreenX - stopTouchScreenX;
-        // console.log(swipeXLenght);
-
-        const swipeYLenght = startTouchScreenY - stopTouchScreenY;
-        // console.log(swipeYLenght);
-        if (swipeXLenght >= 130 && swipeYLenght <= 50 && swipeYLenght >= -50) {
+        if (startTouchScreenX >= 800 && stopTouchScreenX <= 700) {
           show((y += 1));
         }
-        if (swipeXLenght <= -130 && swipeYLenght <= 50 && swipeYLenght >= -50) {
-          show((y -= 1));
+        if (startTouchScreenX <= 700 && stopTouchScreenX >= 800) {
+          show((y += -1));
         }
+
+        // const swipeXLenght = startTouchScreenX - stopTouchScreenX;
+        // console.log(swipeXLenght);
+
+        // const swipeYLenght = startTouchScreenY - stopTouchScreenY;
+        // console.log(swipeYLenght);
+        // if (swipeXLenght >= 130 && swipeYLenght <= 50 && swipeYLenght >= -50) {
+        //   show((y += 1));
+        //  console.log("yes");
+        // }
+        // if (swipeXLenght <= -160 && swipeYLenght >= -50 && swipeYLenght <= 30) {
+        //   show((y -= 1));
+        //  console.log("no");
+        // }
       });
     });
   }
@@ -168,7 +175,7 @@ function mobileScreen() {
   }
 
   function show(x) {
-    // console.log(x);
+    console.log(x);
     // console.log(hide.length);
     if (x === hide.length) {
       y = hide.length - 1;
@@ -177,7 +184,7 @@ function mobileScreen() {
     if (x < 0) {
       y = 0;
     }
-    // console.log(y);
+    console.log(y);
     for (let i = 0; i < hide.length; i++) {
       hide[i].style.display = "none";
       if (i === y) {
