@@ -1,10 +1,10 @@
 export function screenSize(screenWidth) {
   if (screenWidth >= 600) {
     largeScreen();
-    //} else if (screenWidth >= 450 && screenWidth <= 599) {
-    // smallScreen();
-  } else {
+  } else if (screenWidth >= 450 && screenWidth <= 599) {
     smallScreen();
+  } else {
+    mobileScreen();
   }
 }
 
@@ -131,27 +131,31 @@ function mobileScreen() {
   const indexMain = document.querySelectorAll(".ndx_mn_pst_cntnr");
   for (let i = 0; i < indexMain.length; i++) {
     indexMain[i].addEventListener("touchstart", (e) => {
-      e.preventDefault();
-      const startTouchScreenX = e.changedTouches[0].screenX;
-      const startTouchScreenY = e.changedTouches[0].screenY;
-      console.log(startTouchScreenX);
-      // console.log(startTouchScreenY);
-      // console.log(e);
-
-      indexMain[i].addEventListener("touchend", (e) => {
-        e.preventDefault();
-        const stopTouchScreenX = e.changedTouches[0].screenX;
-        const stopTouchScreenY = e.changedTouches[0].screenY;
-        console.log(stopTouchScreenX);
-        // console.log(stopTouchScreenY);
+      let callOnce = true;
+      if (callOnce) {
+        console.log(y);
+        const startTouchScreenX = e.changedTouches[0].screenX;
+        const startTouchScreenY = e.changedTouches[0].screenY;
+        console.log(startTouchScreenX);
+        // console.log(startTouchScreenY);
         // console.log(e);
-        if (startTouchScreenX >= 800 && stopTouchScreenX <= 700) {
-          show((y += 1));
-        }
-        if (startTouchScreenX <= 700 && stopTouchScreenX >= 800) {
-          show((y += -1));
-        }
-      });
+        callOnce = false;
+        indexMain[i].addEventListener("touchend", (e) => {
+          if (!callOnce) {
+            const stopTouchScreenX = e.changedTouches[0].screenX;
+            const stopTouchScreenY = e.changedTouches[0].screenY;
+            console.log(stopTouchScreenX);
+            // console.log(stopTouchScreenY);
+            // console.log(e);
+            if (startTouchScreenX >= 800 && stopTouchScreenX <= 700) {
+              show(++y);
+            }
+            if (startTouchScreenX <= 700 && stopTouchScreenX >= 800) {
+              show(--y);
+            }
+          }
+        });
+      }
     });
   }
 
@@ -163,7 +167,7 @@ function mobileScreen() {
   }
 
   function show(x) {
-    // console.log(x);
+    console.log(x);
     // console.log(hide.length);
     if (x === hide.length) {
       y = hide.length - 1;
@@ -172,7 +176,7 @@ function mobileScreen() {
     if (x < 0) {
       y = 0;
     }
-    // console.log(y);
+    console.log(y);
     for (let i = 0; i < hide.length; i++) {
       hide[i].style.display = "none";
       if (i === y) {
