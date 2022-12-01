@@ -176,7 +176,6 @@ function mobileScreen() {
     if (x < 0) {
       y = 0;
     }
-    A;
     console.log(y);
     for (let i = 0; i < hide.length; i++) {
       hide[i].style.display = "none";
