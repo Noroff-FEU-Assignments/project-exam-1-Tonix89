@@ -1,10 +1,11 @@
 export function screenSize(screenWidth) {
   if (screenWidth >= 600) {
     largeScreen();
-  } else if (screenWidth >= 450 && screenWidth <= 599) {
-    smallScreen();
+    // } else if (screenWidth >= 450 && screenWidth <= 599) {
+    //   smallScreen();
   } else {
-    mobileScreen();
+    smallScreen();
+    // mobileScreen();
   }
 }
 
@@ -122,66 +123,66 @@ function smallScreen() {
   }
 }
 
-function mobileScreen() {
-  const hide = document.querySelectorAll(".ndx_mn_pst_cntnr");
-  //console.log(hide.length);
-  document.querySelector(".sld_lf_cn").style.display = "none";
-  document.querySelector(".sld_rght_cn").style.display = "none";
-  let y = 0;
-  const indexMain = document.querySelectorAll(".ndx_mn_pst_cntnr");
-  for (let i = 0; i < indexMain.length; i++) {
-    indexMain[i].addEventListener("touchstart", (e) => {
-      let callOnce = true;
-      if (callOnce) {
-        // console.log(y);
-        const startTouchScreenX = e.targetTouches[0].screenX;
-        const startTouchScreenY = e.changedTouches[0].screenY;
-        // console.log(startTouchScreenX);
-        // console.log(startTouchScreenY);
-        console.log(e);
-        indexMain[i].addEventListener("touchend", (e) => {
-          if (callOnce) {
-            const stopTouchScreenX = e.changedTouches[0].screenX;
-            const stopTouchScreenY = e.changedTouches[0].screenY;
-            // console.log(stopTouchScreenX);
-            // console.log(stopTouchScreenY);
-            console.log(e);
-            if (startTouchScreenX >= 800 && stopTouchScreenX <= 700) {
-              show(++y);
-            }
-            if (startTouchScreenX <= 700 && stopTouchScreenX >= 800) {
-              show(--y);
-            }
-            callOnce = false;
-          }
-        });
-      }
-    });
-  }
+// function mobileScreen() {
+//   const hide = document.querySelectorAll(".ndx_mn_pst_cntnr");
+//   //console.log(hide.length);
+//   document.querySelector(".sld_lf_cn").style.display = "none";
+//   document.querySelector(".sld_rght_cn").style.display = "none";
+//   let y = 0;
+//   const indexMain = document.querySelectorAll(".ndx_mn_pst_cntnr");
+//   for (let i = 0; i < indexMain.length; i++) {
+//     indexMain[i].addEventListener("touchstart", (e) => {
+//       let callOnce = true;
+//       if (callOnce) {
+//         // console.log(y);
+//         const startTouchScreenX = e.targetTouches[0].screenX;
+//         const startTouchScreenY = e.changedTouches[0].screenY;
+//         console.log(typeof startTouchScreenX);
+//         // console.log(startTouchScreenY);
+//         console.log(e);
+//         indexMain[i].addEventListener("touchend", (e) => {
+//           if (callOnce) {
+//             const stopTouchScreenX = e.changedTouches[0].screenX;
+//             const stopTouchScreenY = e.changedTouches[0].screenY;
+//             // console.log(stopTouchScreenX);
+//             // console.log(stopTouchScreenY);
+//             console.log(e);
+//             if (startTouchScreenX >= 800 && stopTouchScreenX <= 700) {
+//               show(++y);
+//             }
+//             if (startTouchScreenX <= 700 && stopTouchScreenX >= 800) {
+//               show(--y);
+//             }
+//             callOnce = false;
+//           }
+//         });
+//       }
+//     });
+//   }
 
-  for (let i = 0; i < hide.length; i++) {
-    hide[i].style.display = "none";
-    if (i === y) {
-      hide[i].style.display = "grid";
-    }
-  }
+//   for (let i = 0; i < hide.length; i++) {
+//     hide[i].style.display = "none";
+//     if (i === y) {
+//       hide[i].style.display = "grid";
+//     }
+//   }
 
-  function show(x) {
-    console.log(x);
-    // console.log(hide.length);
-    if (x === hide.length) {
-      y = hide.length - 1;
-      // console.log(y);
-    }
-    if (x < 0) {
-      y = 0;
-    }
-    console.log(y);
-    for (let i = 0; i < hide.length; i++) {
-      hide[i].style.display = "none";
-      if (i === y) {
-        hide[i].style.display = "grid";
-      }
-    }
-  }
-}
+//   function show(x) {
+//     console.log(x);
+//     // console.log(hide.length);
+//     if (x === hide.length) {
+//       y = hide.length - 1;
+//       // console.log(y);
+//     }
+//     if (x < 0) {
+//       y = 0;
+//     }
+//     console.log(y);
+//     for (let i = 0; i < hide.length; i++) {
+//       hide[i].style.display = "none";
+//       if (i === y) {
+//         hide[i].style.display = "grid";
+//       }
+//     }
+//   }
+// }

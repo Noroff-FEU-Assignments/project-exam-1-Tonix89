@@ -1096,4 +1096,7 @@ footer p{
     #subscribe_form button{
         font-size: 10px;
     }
+    .sld_lf_cn img, .sld_rght_cn img{
+        width: 10px;
+    }
 }
