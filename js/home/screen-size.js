@@ -139,9 +139,8 @@ function mobileScreen() {
         console.log(startTouchScreenX);
         // console.log(startTouchScreenY);
         // console.log(e);
-        callOnce = false;
         indexMain[i].addEventListener("touchend", (e) => {
-          if (!callOnce) {
+          if (callOnce) {
             const stopTouchScreenX = e.changedTouches[0].screenX;
             const stopTouchScreenY = e.changedTouches[0].screenY;
             console.log(stopTouchScreenX);
@@ -153,6 +152,7 @@ function mobileScreen() {
             if (startTouchScreenX <= 700 && stopTouchScreenX >= 800) {
               show(--y);
             }
+            callOnce = false;
           }
         });
       }
@@ -176,6 +176,7 @@ function mobileScreen() {
     if (x < 0) {
       y = 0;
     }
+    A;
     console.log(y);
     for (let i = 0; i < hide.length; i++) {
       hide[i].style.display = "none";
