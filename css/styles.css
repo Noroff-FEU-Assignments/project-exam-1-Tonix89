@@ -486,6 +486,11 @@ hr{
     background-color: var(--light-blue);
     box-shadow: 4px 4px 20px var(--light-blue);
 }
+.blg_post_cont{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
 .spcfc_mn_div{
     flex-direction: column;
 }

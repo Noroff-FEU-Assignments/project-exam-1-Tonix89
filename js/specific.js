@@ -199,6 +199,12 @@ commentApi();
 function metaUpdate(content, featImgResult, userName) {
   document.title = "My Devotion" + "|" + content[0].innerHTML + "|" + userName;
   document
+    .querySelector("meta[name='description']")
+    .setAttribute(
+      "content",
+      content[0].innerHTML + ". " + content[2].innerHTML
+    );
+  document
     .querySelector("meta[property='og:url']")
     .setAttribute("content", link);
   document
