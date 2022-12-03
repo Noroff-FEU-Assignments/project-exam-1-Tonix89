@@ -1,0 +1,114 @@
+/*----------------- Index Post container ------------*/
+
+.ndx_mn_pst_cntnr{
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    margin: 20px;
+    padding: 10px;
+    background-color: var(--light-blue);
+    box-shadow: 4px 4px 20px var(--light-blue);
+    max-width: 40%;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+@keyframes fade {
+from {opacity: .4} 
+to {opacity: 1}
+}
+
+.post_cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 10px;
+}
+
+.sld_lf_cn, .sld_rght_cn{
+    position: absolute;
+    margin: 5px;
+    border: none;
+    background-color: transparent;
+}
+.sld_lf_cn{
+    left:-5px;
+}
+.sld_rght_cn{
+    right: -5px;
+}
+
+.sld_lf_cn img, .sld_rght_cn img{
+    width: 20px;
+    cursor: pointer;
+}
+
+.hide , .blg_hide, .hideBtn, .blg_filtered_hide{
+    display: none;
+}
+.pst_hd, .bible, .pst_cta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.pst_hd h1{
+    text-align: center;
+}
+
+.ndx_mn_pst_cntnr .pst_hd h4{
+    font: 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    font-style: italic;
+    margin: 2px;
+}
+
+.ndx_mn_pst_cntnr .bible h2{
+    margin-top: 0;
+    align-self: flex-end;
+    font: bold italic 14px 'Segoe UI';
+}
+
+.usr_prfl_pc img{
+    border-radius: 50%;
+}
+.usr_prfl_pc{
+    border: none;
+    background-color: transparent;
+}
+
+.date{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-start;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.publish_date, .date_date{
+    font: 12px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.publish_date{
+    font-weight: bold;
+}
+
+.ndx_mn_pst_cntnr .verse{
+    font: italic 14px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-indent: 10%;
+    margin: 0;
+}
+
+.rd_nw_cta{
+    width:125px;
+    padding: 2px;
+    background-color: var(--dark-blue);
+    border-radius: 20px;
+    color: var(--light-blue);
+    text-align: center;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}

@@ -1,0 +1,112 @@
+/*----------------- Specific Page ------------*/
+.spcfc_mn_cntnr{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 20px;
+    padding: 10px;
+    background-color: var(--light-blue);
+    box-shadow: 4px 4px 20px var(--light-blue);
+}
+.blg_post_cont{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.spcfc_mn_div{
+    flex-direction: column;
+}
+.feat_cont button{
+    border: none;
+    background-color: transparent;
+    width: 100%;
+}
+.feat_cont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.feat_cont button img{
+    width: 70%;
+    height: 254px;
+    margin-bottom: 10px;
+}
+.auth_date{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.auth_date img{
+    margin-right: 10px;
+}
+
+.auth_date .date p, .auth_date h4{
+    margin: 0;
+}
+.parag h1, .parag h2, .parag h3, .parag strong{
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.parag p{
+    font-size: 16px;
+    font-weight: bold;
+    text-indent: 50px;
+}
+.parag h6{
+    font: bold italic 16px "Segoe UI";
+    flex-direction: row-reverse;
+    display: flex;
+}
+.blg_spcfc_pst .verse{
+    font: 500 italic 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-indent: 10%;
+    margin: 0;
+}
+.blg_spcfc_pst .bible h2{
+    margin-top: 0;
+    align-self: flex-end;
+    font: bold italic 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.hide_section{
+    display: none;
+}
+.pst_cmmnt{
+    display: flex;
+    flex-direction: column;
+    background-color: var(----skyblue);
+    padding: 10px;
+    margin: 10px;
+}
+.pst_cmmnt p{
+    font: italic 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-indent: 10%;
+    margin: 0;
+}
+.pst_cmmnt p::before{
+    content: "''";
+}
+.pst_cmmnt p::after{
+    content: "''";
+}
+.pst_cmmnt h4{
+    align-self: flex-end;
+    margin: 0;
+    font: bold italic 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.cmmnts_sctn{
+    margin-top: 40px;
+    font: italic 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.cmmnt_sbmt_mssg{
+    text-align: center;
+    margin-top: 60px;
+    font: bold 18px 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.add_cmmnt_sctn{
+    margin-top: 50px;
+}
+.spcfc_ldr{
+    display: none;
+    align-self: center;
+}

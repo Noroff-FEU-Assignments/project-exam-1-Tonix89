@@ -1,0 +1,41 @@
+/*--------------------- About Page --------------*/
+.abt_main_cntnr{
+    margin: 40px;
+    }
+    .abt_mn{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        color: var(--light-blue) ;
+    }
+    
+    .abt_creator{
+        text-align: center;
+    }
+    
+    .abt_creator h4{
+        font: bold 18px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 5px;
+    }
+    
+    .abt_creator h2{
+        font: bold italic 22px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--light-pink);
+    }
+    
+    .abt_mn img{
+        max-width: 150px;
+        border-radius: 50%;
+    }
+    
+    .prps h2{
+        margin: 2px;
+        font: bold italic 22px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .abt_mn p{
+        font: normal 16px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+        text-indent: 10%;
+    }
+    .abt_mn li{
+        font: normal 16px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+    }

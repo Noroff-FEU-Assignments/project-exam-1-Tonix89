@@ -1,0 +1,30 @@
+/** -------------------- Main -------------------**/
+.ndx_mn, .contact, .fdbck_mn,.about{
+    height: 100vh;
+}
+
+.blg_main, .cntct_main, .abt_main{
+    margin-top:30px;
+}
+
+/*--------------------- Index Main ---------------**/
+.mn_div{
+    display: flex;
+    flex-direction: column;
+    padding: 0 8%;
+}
+
+.ndx_mn_cntnr{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.ndx_mn_cntnr, .blg_mn_cntnr, .spcfc_mn_div, .cntct_mn_div, .abt_main_cntnr{
+    display: flex;
+    position: relative;
+    background-color: var(--dark-blue);
+    box-shadow: 4px 4px 20px var(--dark-blue);
+    border-radius: 20px;
+    min-height: 40vh;
+    align-items: center;
+}

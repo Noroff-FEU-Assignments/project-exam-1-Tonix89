@@ -1,0 +1,37 @@
+/*----------------- Feedback Page -------------*/
+
+.feedback_main{
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#feedback_form{
+    align-items: center;
+}
+#feedback_form p{
+    text-align: center;
+    font: bold 16px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif ;
+    color: var(--light-blue);
+}
+.fdbck label{
+    font: bold 14px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--light-blue);
+}
+.xprcn{
+    margin-bottom: 0px;
+}
+.fdbck_emojis{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    margin-top: 2px;
+}
+#confuse label{
+    font-size: 20px;
+}
+.fdbck_emojis button{
+    background: none;
+    border: none;
+}

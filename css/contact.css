@@ -1,0 +1,38 @@
+/*----------------- Contact Page -----------*/
+.cntct_mn_cntnr{
+    margin: 20px;
+}
+.cntct_main{
+    justify-content: center;
+    display: flex;
+}
+.cntct_mn_div{
+    max-width: fit-content;
+    padding: 2%;
+}
+.required{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+#cntct_form textarea, #feedback_form textarea{
+    width: 300px;
+    height: 200px;
+}
+.mssg{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.mssg label{
+    margin-bottom: 5px;
+}
+#cntct_form .required label{
+    color: var(--light-blue);
+}
+.cntct_mn_div h3{
+    font: bold 28px 'Segoe UI Bold', Tahoma, Geneva, Verdana, sans-serif ;
+    color: var(--light-pink);
+}
