@@ -92,7 +92,7 @@ async function postApi() {
 
     document.querySelector(".hide_section").className = "cmmnts_sctn";
 
-    metaUpdate(content, featImgResult, userName);
+    metaUpdate(content, featImgResult, userName, result);
 
     postCont.innerHTML = `<div class="blg_spcfc_pst">
                             <div class= "feat_cont">
@@ -196,8 +196,9 @@ async function commentApi() {
 
 commentApi();
 
-function metaUpdate(content, featImgResult, userName) {
-  document.title = "My Devotion" + "|" + content[0].innerHTML + "|" + userName;
+function metaUpdate(content, featImgResult, userName, result) {
+  document.title =
+    result.title.rendered + "|" + content[0].innerHTML + "|" + userName;
   document
     .querySelector("meta[name='description']")
     .setAttribute(
