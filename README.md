@@ -6,8 +6,6 @@
 
 Daily Devotion is a blog site. Where Christians all over the world can share their personal devotion to God and to inspire others.
 
-Functionality:
-
   - You were able to search using author name, title of post and language category of the post.
   - Add comments to each post without registration and comments posted directly to the post.
   - Send feedback without registration and feedback save to wordpress form.
